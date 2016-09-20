@@ -1,0 +1,96 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="window" data-role="dialog" id="modal_dependente" data-place="bottom-right" data-width="700px" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
+    <div class="window-caption bg-darkGreen fg-white">
+        <span class="window-caption-icon"><span class="mif-user-plus"></span></span>
+        <span class="window-caption-title">Adicionar Dependente</span>
+        <!--<span class="btn-min"></span><span class="btn-max"></span>-->
+        <span class="btn-close" ng-click="fecharModal('#modal_dependente')"></span>
+    </div>
+    <div class="window-content bg-grayLighter">
+        <form name="form_dependente">
+            <!-- Id -->
+            <input type="text" hidden ng-model="dependente.id"/>
+            <h3 class="text-light padding10 no-padding-top">Informe os dados do Dependente</h3>
+            <div class="flex-grid">
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>* Nome</label>
+                        <div class="input-control text full-size">
+                            <input type="text" required ng-model="dependente.nome"/>
+                        </div>
+                    </div>
+                    <div class="cell size3 padding10">
+                        <label>Identidade</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="dependente.rg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>* Grau de Dependência</label>
+                        <div class="input-control select full-size">
+                            <select required ng-model="dependente.dependencia">
+                                <option></option>
+                                <option value="AVÓ">Avó</option>
+                                <option value="BISNETO">Bisneto</option>
+                                <option value="BISAVÓS">Bisavós</option>
+                                <option value="CONJUGE">Conjuge</option>
+                                <option value="CURATELADO">Curatelado</option>
+                                <option value="DEPENDENTE_COM_SENTENÇA_JUDICIAL">Dependente com Sentença Judicial</option>
+                                <option value="ENTEADO">Enteado</option>
+                                <option value="FILHO">Filho</option>
+                                <option value="FILHO_CONVIVENTE">Filho Convivente</option>
+                                <option value="IRMÃO">Irmão</option>
+                                <option value="MÃE">Mãe</option>
+                                <option value="MENOR_POBRE">Menor Pobre</option>
+                                <option value="MENOR_SOB_GUARDA">Menor Sob Guarda</option>
+                                <option value="NASCITURO">Nascituro</option>
+                                <option value="NETO">Neto</option>
+                                <option value="PAI">Pai</option>
+                                <option value="TUTELADO">Tutelado</option>
+                                <option value="OUTROS">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>* Estado Civil</label>
+                        <div class="input-control select full-size">
+                            <select required ng-model="dependente.estadoCivil">
+                                <option></option>
+                                <option value="SOLTEIRO">Solteiro(a)</option>
+                                <option value="CASADO">Casado(a)</option>
+                                <option value="VIUVO">Viuvo(a)</option>
+                                <option value="DIVORCIADO">Divorciado(a)</option>
+                                <option value="UNIAO_ESTAVEL">União Estável</option>
+                                <option value="SEPARADO">Separado</option>
+                                <option value="DESQUITADO">Desquitado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>* Situação Financeira</label>
+                        <div class="input-control select full-size">
+                            <select required ng-model="dependente.situacaoFinanceira">
+                                <option></option>
+                                <option value='COM_RENDA'>Com Renda</option>
+                                <option value='DECLARAÇÃO_DE_BENS'>Declaração de Bens</option>
+                                <option value='CREDOR_DE_ALIMENTOS'>Credor de Alimentos</option>
+                                <option value='SOB_SUSTENTO'>Sob Sustento</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group padding10">
+                <button ng-disabled="form_dependente.$invalid" class="button" ng-click="adicionarDependente()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+                <button class="button" ng-click="fecharModal('#modal_dependente')"><span class="mif-cancel icon"></span> Cancelar</button>
+            </div>
+        </form>
+        <div class="padding10"></div>
+    </div>
+</div>

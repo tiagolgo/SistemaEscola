@@ -1,0 +1,73 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="flex-grid" style="height: 100%!important">
+
+    <div class="row cell-auto-size" style="height: 100%!important">
+        <!-- Filtro de exibição de arquivo -->
+        <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray no-padding-right">
+            <h3 class="text-light">Menu Principal</h3>
+            <ul class="v-menu full-size" style='background-color: transparent!important'>
+                <li ng-click="item = 1" ng-class="{'v-menu-select':item == 1}"><a href=""><span class=" icon"></span> Informações Básicas</a></li>
+                <li ng-click="item = 2" ng-class="{'v-menu-select':item == 2}"><a href=""><span class=" icon"></span> Documentos</a></li>
+                <li ng-click="item = 3" ng-class="{'v-menu-select':item == 3}"><a href=""><span class=" icon"></span> Escolaridade</a></li>
+                <li ng-click="item = 4" ng-class="{'v-menu-select':item == 4}"><a href=""><span class=" icon"></span> Dependentes</a></li>       
+                <li ng-click="item = 5" ng-class="{'v-menu-select':item == 5}"><a href=""><span class=" icon"></span> Dados Bancários</a></li>
+            </ul>
+        </div>
+
+        <!--Conteúdo -->
+        <div class="cell padding30 no-padding-top no-padding-right text-light" style="overflow-y: scroll" ng-init="item = 1">
+            <form name="form_servidor">
+                <div class="button-group padding5 no-padding-left" >
+                    <button ng-disabled="form_servidor.$invalid" class="button bg-green" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
+                    <a class="button bg-lightOrange" href="#/"><span class="mif-cancel"></span> Cancelar</a>
+                    <button class="button bg-lightRed"><span class="mif-bin"></span> Remover</button>
+                </div>
+
+                <!-- Dados Pessoais -->
+                <div ng-show="item == 1" style="height: auto!important">
+                    <!--Dados Pessoais-->
+                    <div ng-include="'views/servidores/componentes/dadospessoais.html'"></div>
+                    <!-- Endereço -->
+                    <div ng-include="'views/servidores/componentes/endereco.html'"></div>
+                    <!-- Contato -->
+                    <div ng-include="'views/servidores/componentes/contato.html'"></div>
+                    <!-- Filiaçao -->
+                    <div ng-include="'views/servidores/componentes/filiacao.html'"></div>
+                </div>
+
+                <!-- Documentos -->
+                <div ng-show="item == 2" style="height: auto!important">
+                    <!-- Identidade -->
+                    <div ng-include="'views/servidores/componentes/identidade.html'"></div>
+                    <!-- Titulo Eleitoral -->
+                    <div ng-include="'views/servidores/componentes/titulo.html'"></div>
+                    <!-- CNH -->
+                    <div ng-include="'views/servidores/componentes/cnh.html'"></div>
+                    <!-- Pis/Pasep -->
+                    <div ng-include="'views/servidores/componentes/pis.html'"></div>
+                    <!-- Carteira de Trabalho -->
+                    <div ng-include="'views/servidores/componentes/ctps.html'"></div>
+                    <!-- Documento Militar -->
+                    <div ng-include="'views/servidores/componentes/reservista.html'"></div>
+                </div>
+
+                <!-- Escolaridade -->
+                <div ng-include="'views/servidores/componentes/escolaridade.html'"></div>
+                <!-- Dependentes -->
+                <div ng-include="'views/servidores/componentes/dependentes.html'"></div>
+                <!-- Dados Bancários -->
+                <div ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para inclusão/edição de dependente -->
+<div ng-include="'views/servidores/modal_dependente.html'"></div>
+<!-- Modal para inclusão/edição de cursos de graduação -->
+<div ng-include="'views/servidores/modal_graduacao.html'"></div>

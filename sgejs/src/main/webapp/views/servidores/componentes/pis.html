@@ -1,0 +1,28 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<h4>PIS/PASEP</h4>
+<input hidden ng-model="servidor.documento.pis.id"/>
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>Número</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.documento.pis.numero"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Data de Inclusão</label>
+        <div class="input-control text full-size" data-role="datepicker">
+            <input type="text" ng-model="servidor.documento.pis.inclusao"/>
+            <button class="button"><span class="mif-calendar"></span></button>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Banco</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.documento.pis.banco"/>
+        </div>
+    </div>
+</div>

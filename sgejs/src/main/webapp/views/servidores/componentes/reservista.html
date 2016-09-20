@@ -1,0 +1,36 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="row cell-auto-size">
+    <div class="cell">
+        <h4>CPF</h4>
+        <div class="row cell-auto-size">
+            <div class="cell padding10">
+                <label>Número</label>
+                <div class="input-control text full-size">
+                    <input type="text" ng-model="servidor.cpf"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cell">
+        <h4>Documento Militar</h4>
+        <input hidden ng-model="servidor.documento.reservista.id"/>
+        <div class="row cell-auto-size">
+            <div class="cell padding10">
+                <label>Número</label>
+                <div class="input-control text full-size">
+                    <input type="text" ng-model="servidor.documento.reservista.numero"/>
+                </div>
+            </div>
+            <div class="cell padding10">
+                <label>Categoria</label>
+                <div class="input-control text full-size">
+                    <input type="text" ng-model="servidor.documento.reservista.categoria"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

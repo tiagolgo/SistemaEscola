@@ -1,0 +1,63 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<h4>Documento de Identidade</h4>
+<input hidden ng-model="servidor.documento.identidade.id"/>
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>Número</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.documento.identidade.numero"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Date de Emissão</label>
+        <div class="input-control text full-size" data-role="datepicker">
+            <input type="text" ng-model="servidor.documento.identidade.emissao"/>
+            <button class="button"><span class="mif-calendar"></span></button>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>UF</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.documento.identidade.uf">
+                <option></option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+            </select>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Órgão Emissor</label>
+        <div class="input-control select full-size">
+            <input type="text" ng-model="servidor.documento.identidade.emissor"/>
+        </div>
+    </div>
+</div>

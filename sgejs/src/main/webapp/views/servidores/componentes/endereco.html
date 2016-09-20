@@ -1,0 +1,78 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<h4>Endereço</h4>
+
+<input hidden type="text" ng-model="servidor.endereco.id"/>
+
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>Rua</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.endereco.rua"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Número</label>
+        <div class="input-control select full-size">
+            <input type="text" ng-model="servidor.endereco.numero"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Cep</label>
+        <div class="input-control select full-size">
+            <input type="text" ng-model="servidor.endereco.cep"/>
+        </div>
+    </div>
+</div>
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>Bairro</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.endereco.bairro"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Município</label>
+        <div class="input-control select full-size">
+            <input type="text" ng-model="servidor.endereco.municipio"/>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Estado</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.endereco.estado">
+                <option></option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+            </select>
+        </div>
+    </div>
+</div>

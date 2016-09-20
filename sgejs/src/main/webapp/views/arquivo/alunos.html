@@ -1,0 +1,34 @@
+<!-- 
+Exibir Alunos do Arquivo 
+-->
+<div data-role="charm" id="charm_alunos" style="width: 500px;" class="bg-white fg-dark">
+    <h4 class="text-bold padding5 no-padding-left">{{titulo}}</h4>
+    <form name="novo_aluno" >
+        <div class="input-control full-size text">
+            <!--style="height: 1.65rem!important"-->
+            <input required type="text" ng-model="aluno.nome" />
+            <button ng-disabled="novo_aluno.$invalid" class="button" ng-click="adicionaAluno()">Adicionar</button>
+        </div>
+    </form>
+    <div  style="height: 90%;overflow-y: scroll;">
+        <table class="table hovered text-light striped" style="font-size: 16px!important">
+            <thead>
+                <tr>
+                    <td>Alunos</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody ng-init="i = -1">
+                <tr ng-mouseover="i = $index" ng-mouseleave="i = -1" ng-repeat="a in alunos" class="capitaliar no-padding">
+                    <td style="padding: 5px!important">{{a.nome}}</td>
+                    <td style="padding: 5px!important">
+                        <span class="place-right" ng-show="i == $index">
+                            <span class="mif-bin padding5" ng-click="removerAluno($index)"></span>
+                            <span class="mif-pencil padding5 hovered" ng-click="editarAluno($index)"></span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

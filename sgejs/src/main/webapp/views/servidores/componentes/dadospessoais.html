@@ -1,0 +1,118 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<h4>Dados Pessoais</h4>
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>* Nome</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.nome" required/>
+        </div>
+    </div>
+    <div class="cell padding10 size2">
+        <label>* Data de Nascimento</label>
+        <div class="input-control text full-size" data-role="datepicker">
+            <input type="text" ng-model="servidor.nascimento" required/>
+            <button class="button"><span class="mif-calendar"></span></button>
+        </div>
+    </div>
+    <div class="cell padding10 size4">
+        <label>* Cidade de Nascimento</label>
+        <div class="input-control text full-size">
+            <input type="text" ng-model="servidor.cidadeNascimento" required/>
+        </div>
+    </div>
+    <div class="cell padding10 size2">
+        <label>* Estado de Nascimento</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.ufNascimento" required>
+                <option></option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row cell-auto-size">
+    <div class="cell padding10">
+        <label>* Sexo</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.sexo" required>
+                <option></option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="FEMININO">Feminino</option>
+            </select>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>* Raça</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.raca" required>
+                <option></option>
+                <option value="INDÍGENA">INDÍGENA</option>
+                <option value="BRANCA">BRANCA</option>
+                <option value="NEGRA">NEGRA</option>
+                <option value="AMARELA">AMARELA</option>
+                <option value="PARDA">PARDA</option>
+            </select>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>Grupo Sanguíneo</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.grupoSanguineo">
+                <option></option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+            </select>
+        </div>
+    </div>
+    <div class="cell padding10">
+        <label>* Estado Civil</label>
+        <div class="input-control select full-size">
+            <select ng-model="servidor.estadoCivil" required>
+                <option></option>
+                <option value="SOLTEIRO">SOLTEIRO</option>
+                <option value="CASADO">CASADO</option>
+                <option value="VIUVO">VIUVO</option>
+                <option value="DIVORCIADO">DIVORCIADO</option>
+                <option value="UNIAO_ESTAVEL">UNIAO_ESTAVEL</option>
+                <option value="SEPARADO">SEPARADO</option>
+                <option value="DESQUITADO">DESQUITADO</option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/sgejs?createDatabaseIfNotExist=true</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.connection.autocommit">true</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.transaction.auto_close_session">false</property>
+        <!-- 
+        Arquivo Morto 
+        -->
+        <mapping class="br.com.sgejs.modelo.arquivoMorto.Aluno"/>
+        <mapping class="br.com.sgejs.modelo.arquivoMorto.Arquivo"/>
+        <!-- 
+        Recursos Humanos 
+        -->
+        <mapping class="br.com.sgejs.modelo.rh.servidor.ContaCorrente"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Contato"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Dependente"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Endereco"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Filiacao"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.LinhaFuncional"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Graduacao"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Servidor"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Cnh"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Ctps"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Reservista"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Documento"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Pis"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Rg"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Titulo"/>
+    
+    </session-factory>
+</hibernate-configuration>

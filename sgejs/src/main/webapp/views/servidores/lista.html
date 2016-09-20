@@ -1,0 +1,68 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="flex-grid alt-content" style="height: 100%!important">
+
+    <div class="row cell-auto-size" style="height: 100%!important">
+        <!-- Filtro de exibição de arquivo -->
+        <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray">
+            <h3 class="text-light">Menu Principal</h3>
+            <ul class="v-menu full-size" style='background-color: transparent!important'>
+                <li><a href=""><span class=" icon"></span> Ativos</a></li>
+                <li><a href=""><span class=" icon"></span> Inativos</a></li>
+            </ul>
+        </div>
+
+        <!--Conteúdo/Arquivos -->
+        <div class="cell margin20 no-margin-top no-margin-right">
+            <!-- Opções de arquivo -->
+            <div class="flex-grid">
+                <div class="button-group" >
+                    <button class="button bg-lightBlue" ui-sref="cadastro"><span class="mif-plus"></span> Novo</button>
+                    <button class="button bg-lightOrange" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
+                    <button class="button bg-lightRed" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
+                    <!-- left -->
+                    <div class="dropdown-button">
+                        <button class="button dropdown-toggle">Menu</button>
+                        <ul class="split-content d-menu" data-role="dropdown">
+                            <li><a href="#">Reply</a></li>
+                            <li><a href="#">Reply All</a></li>
+                            <li><a href="#">Forward</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell">
+                        <h3 class="text-light">Relação de Servidores</h3>
+                    </div>                   
+                </div>
+            </div>
+            <!-- Lista de Servidores -->
+            <div class="row" style="height: 90%;overflow-y: scroll">
+                <table class="table striped hovered full-size">
+                    <thead>
+                        <tr>
+                            <td>Nome</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody class="capitaliar">
+                        <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
+                        <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                            <td>{{s.nome}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

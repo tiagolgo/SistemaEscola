@@ -1,0 +1,47 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="window" data-role="dialog" id="modal_graduacao" data-place="bottom-right" data-width="800px" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
+    <div class="window-caption bg-darkGreen fg-white">
+        <span class="window-caption-icon"><span class="mif-plus"></span></span>
+        <span class="window-caption-title">Adicionar Graduação</span>
+        <!--<span class="btn-min"></span><span class="btn-max"></span>-->
+        <span class="btn-close" ng-click="fecharModal('#modal_graduacao')"></span>
+    </div>
+    <div class="window-content bg-grayLighter">
+        <form name="form_graduacao">
+            <!-- Id -->
+            <input hidden ng-model="graduacao.id"/>
+            <h3 class="text-light padding10 no-padding-top">Informe os dados do Dependente</h3>
+            <div class="flex-grid">
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>* Curso Superior</label>
+                        <div class="input-control text full-size">
+                            <input type="text" required ng-model="graduacao.curso"/>
+                        </div>
+                    </div>
+                    <div class="cell size padding10">
+                        <label>* Instituição</label>
+                        <div class="input-control text full-size">
+                            <input type="text" required ng-model="graduacao.instituicao"/>
+                        </div>
+                    </div>
+                    <div class="cell size3 padding10">
+                        <label>* Ano</label>
+                        <div class="input-control text full-size">
+                            <input type="text" required ng-model="graduacao.curso"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group padding10">
+                <button ng-disabled="form_graduacao.$invalid" class="button" ng-click="adicionarGraduacao()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+                <button class="button" ng-click="fecharModal('#modal_graduacao')"><span class="mif-cancel icon"></span> Cancelar</button>
+            </div>
+        </form>
+        <div class="padding10"></div>
+    </div>
+</div>

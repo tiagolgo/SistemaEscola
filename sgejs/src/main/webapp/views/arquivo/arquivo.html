@@ -1,0 +1,70 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="button-group padding5 no-padding-left">
+    <button class="button" ng-click="novoArquivo(true)"><span class="mif-plus"></span> Novo</button>
+    <button ng-show="selected != null" class="button" ng-click="novoArquivo(false)"><span class="mif-pencil"></span> Editar</button>
+    <button ng-show="selected != null" class="button" ng-click="removerArquivo()"><span class="mif-bin"></span> Remover</button>
+    <button ng-show="selected != null" class="button" ng-click="visualizarArquivo()"><span class="mif-organization"></span> Alunos</button>
+</div>
+<!-- Relação de Arquivo Morto -->
+<h4 class="text-light">Relação de Arquivo Morto</h4>
+<div class="row" style="height: 90%;overflow-y: scroll">
+    <table class="table striped hovered full-size">
+        <thead>
+            <tr>
+                <td>Curso</td>
+                <td>Tipo do Arquivo</td>
+                <td>Ano</td>
+                <td>Caixa</td>
+                <td>Data de Criação</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="a in arquivos" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                <td>{{a.curso}}</td>
+                <td>{{a.tipo}}</td>
+                <td>{{a.ano}}</td>
+                <td>{{a.caixa}}</td>
+                <td>{{a.criacao| date:'dd/MM/yyyy'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Exibir Alunos do Arquivo -->
+<div data-role="charm" id="charm_alunos" style="width: 500px;" class="bg-white fg-dark">
+    <h4 class="text-bold padding5 no-padding-left">{{titulo}}</h4>
+    <form name="novo_aluno" >
+        <div class="input-control full-size text">
+            <!--style="height: 1.65rem!important"-->
+            <input required type="text" ng-model="aluno.nome" />
+            <button ng-disabled="novo_aluno.$invalid" class="button" ng-click="adicionaAluno()">Adicionar</button>
+        </div>
+    </form>
+    <div  style="height: 90%;overflow-y: scroll;">
+        <table class="table hovered text-light striped" style="font-size: 16px!important">
+            <thead>
+                <tr>
+                    <td>Alunos</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody ng-init="i = -1">
+                <tr ng-mouseover="i = $index" ng-mouseleave="i = -1" ng-repeat="a in alunos" class="capitaliar no-padding">
+                    <td style="padding: 5px!important">{{a.nome}}</td>
+                    <td style="padding: 5px!important">
+                        <span class="place-right" ng-show="i == $index">
+                            <span class="mif-bin padding5" ng-click="removerAluno($index)"></span>
+                            <span class="mif-pencil padding5 hovered" ng-click="editarAluno($index)"></span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div ng-include="'/sgejs/views/arquivo/novo.html'"></div>

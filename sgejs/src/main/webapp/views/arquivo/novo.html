@@ -1,0 +1,67 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="window" data-role="dialog" id="modal_arquivo" data-place="bottom-right" data-width="600px" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
+    <div class="window-caption bg-darkGreen fg-white">
+        <span class="window-caption-icon"><span class="mif-folder-plus"></span></span>
+        <span class="window-caption-title">Criar Arquivo</span>
+        <!--<span class="btn-min"></span><span class="btn-max"></span>-->
+        <span class="btn-close" ng-click="fecharModal()"></span>
+    </div>
+    <div class="window-content bg-grayLighter">
+        <form name="form_novo">
+            <!-- Id -->
+            <input type="text" hidden ng-model="arquivo.id"/>
+            <h3 class="text-light padding10">Informe os dados do Arquivo</h3>
+            <div class="flex-grid">
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Curso</label>
+                        <div class="input-control select full-size">
+                            <select ng-model="arquivo.curso" required>
+                                <option></option>
+                                <option value="Fundamental_Anos_Iniciais">Fundamental Anos Iniciais</option>
+                                <option value="Fundamental_Anos_Finais">Fundamental Anos Finais</option>
+                                <option value="Ensino_Médio">Ensino Médio</option>
+                                <option value="Supletivo">Supletivo</option>
+                                <option value="Correção_de_Fluxo">Correção de Fluxo</option>
+                                <option value="Técnico_em_Contabilidade">Técnico em Contabilidade</option>
+                                <option value="Educação_Geral">Educação Geral</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Tipo do Arquivo</label>
+                        <div class="input-control select full-size">
+                            <select ng-model="arquivo.tipo" required>
+                                <option></option>
+                                <option value="Inativo">Inativo</option>
+                                <option value="Concluintes">Concluintes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Ano</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="arquivo.ano" ng-keypress="verificaAno($event)" required/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Caixa/Local</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="arquivo.caixa" ng-keypress="somenteTexto($event)" required/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group padding10">
+                <button ng-disabled="form_novo.$invalid" class="button" ng-click="salvarArquivo()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+                <button class="button" ng-click="fecharModal()"><span class="mif-cancel icon"></span> Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

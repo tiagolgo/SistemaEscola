@@ -1,0 +1,37 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div ng-show="item == 5" style="height: auto!important">
+    <h4>Conta Bancária</h4>
+    <input hidden ng-model="servidor.cc.id"/>
+    <div class="row cell-auto-size">
+        <div class="cell padding10">
+            <label>Banco</label>
+            <div class="input-control text full-size">
+                <input type="text" ng-model="servidor.cc.banco"/>
+            </div>
+        </div>
+        <div class="cell padding10">
+            <label>Agencia</label>
+            <div class="input-control text full-size">
+                <input type="text" ng-model="servidor.cc.agencia"/>
+            </div>
+        </div>
+        <div class="cell padding10">
+            <label>Conta</label>
+            <div class="input-control text full-size">
+                <input type="text" ng-model="servidor.cc.numero"/>
+            </div>
+        </div>
+        <div class="cell padding10">
+            <label>Tipo de Conta</label>
+            <div class="input-control select full-size">
+                <select>
+                    <option>Conta Corrente</option>
+                </select>                 
+            </div>
+        </div>
+    </div>
+</div>

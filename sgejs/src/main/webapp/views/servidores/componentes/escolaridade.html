@@ -1,0 +1,73 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div ng-show="item == 3" style="height: auto!important">
+    
+    <div class="row cell-auto-size">
+        <div class="cell padding10">
+            <h4>Instrução</h4>
+            <div class="input-control select full-size">
+                <select ng-model="servidor.instrucao">
+                    <option></option>
+                    <option value="NAO_APLICA">NAO_APLICA</option>
+                    <option value="NAO_ALFABETIZADO">NAO_ALFABETIZADO</option>
+                    <option value="PRIMARIO_INCOMPLETO">PRIMARIO_INCOMPLETO</option>
+                    <option value="PRIMARIO_COMPLETO">PRIMARIO_COMPLETO</option>
+                    <option value="GINASIO_INCOMPLETO">GINASIO_INCOMPLETO</option>
+                    <option value="GINASIO_COMPLETO">GINASIO_COMPLETO</option>
+                    <option value="MEDIO_INCOMPLETO">MEDIO_INCOMPLETO</option>
+                    <option value="MEDIO_COMPLETO">MEDIO_COMPLETO</option>
+                    <option value="SUPERIOR_INCOMPLETO">SUPERIOR_INCOMPLETO</option>
+                    <option value="SUPERIOR_COMPLETO">SUPERIOR_COMPLETO</option>
+                </select>
+            </div>
+        </div>
+        <div class="cell padding10">
+            <h4>Curso de Pós-Graduação</h4>
+            <div class="input-control select full-size">
+                <select ng-model="servidor.posGraduacao">
+                    <option></option>
+                    <option value="TESE_NAO_DEFENDIDA">TESE_NAO_DEFENDIDA</option>
+                    <option value="MESTRE">MESTRE</option>
+                    <option value="DOUTOR">DOUTOR</option>
+                    <option value="PHD">PHD</option>
+                    <option value="EM_ANDAMENTO">EM_ANDAMENTO</option>
+                    <option value="ABANDONADO">ABANDONADO</option>
+                    <option value="POS_GRADUADO">POS_GRADUADO</option>
+                    <option value="LIVRE_DOCENTE">LIVRE_DOCENTE</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row cell-auto-size">
+        <div class="cell padding10">
+            <h4>Cursos de Graduação</h4>
+            <div class="button-group">
+                <button class="button small-button" ng-click="abrirModal('#modal_graduacao')"><span class='mif-plus'> Adicionar</span></button>
+                <button class="button small-button"><span class='mif-pencil'> Editar</span></button>
+                <button class="button small-button"><span class='mif-bin'> Excluir</span></button>
+            </div>
+
+            <table class="table striped hovered full-size">
+                <thead>
+                    <tr>
+                        <td>Curso</td>
+                        <td>Instituição</td>
+                        <td>Conclusão</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="g in servidor.graduacoes">
+                        <td>{{g.curso}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
