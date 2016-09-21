@@ -20,7 +20,7 @@ and open the template in the editor.
             <!-- Opções de arquivo -->
             <div class="flex-grid">
                 <div class="button-group" >
-                    <button class="button bg-lightBlue" ui-sref="cadastro"><span class="mif-plus"></span> Novo</button>
+                    <button class="button bg-lightBlue" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>
                     <button class="button bg-lightOrange" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
                     <button class="button bg-lightRed" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
                     <!-- left -->
@@ -66,3 +66,5 @@ and open the template in the editor.
         </div>
     </div>
 </div>
+
+<div ng-include="'views/servidores/charm_servidor.html'"></div>

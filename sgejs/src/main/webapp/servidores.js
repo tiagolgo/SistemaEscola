@@ -7,15 +7,6 @@
  */
 
 var app = angular.module("servidores", ["ui.router"]);
-/*app.config(function ($routeProvider, $httpProvider) {
- /*$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';*
- $routeProvider.when('/', {
- templateUrl: "views/servidores/lista.html"
- }).when("/search/:id/:nome", {
- templateUrl: "views/arquivo/arquivo.html",
- controller: "BuscaController"
- });
- });*/
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     //$locationProvider.html5Mode(true);
@@ -61,12 +52,11 @@ app.controller('CadastroController', function ($scope, $rootScope, $http, $locat
         return{id: null, curso: null, instituicao: null, ano: null};
     }
     $scope.graduacao = graduacao();
-    
+
     function dependente() {
         return {id: null, nome: null, rg: null, dependencia: null, estadoCivil: null, situacaoFinanceira: null};
     }
     $scope.dependente = dependente();
-
 
     $scope.salvarServidor = function () {
         console.log('cadastrar servidor', $scope.servidor);
@@ -78,7 +68,7 @@ app.controller('CadastroController', function ($scope, $rootScope, $http, $locat
     };
 
     $scope.adicionarGraduacao = function () {
-        console.log('adicionar graduacao',$scope.graduacao);
+        console.log('adicionar graduacao', $scope.graduacao);
     };
 
     $scope.adicionarDependente = function () {
@@ -94,6 +84,8 @@ app.controller('CadastroController', function ($scope, $rootScope, $http, $locat
         var dialog = $(id).data('dialog');
         dialog.close();
     };
+
+
 });
 
 
@@ -152,6 +144,9 @@ app.controller('ListaController', function ($scope, $rootScope, $http, $location
             $event.preventDefault();
         }
     };
-
+    
+    $scope.exibirCharm = function (id,pos) {
+        toggleMetroCharm(id, pos);
+    };
 });
 

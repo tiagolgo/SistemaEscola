@@ -178,7 +178,7 @@
                 <!--Conteúdo/Arquivos -->
                 <div class="cell margin20 no-margin-top no-margin-right">
                     <!-- Opções de arquivo -->
-                    <div class="button-group padding5 no-padding-left" >
+                    <div class="button-group padding5 no-padding-top no-padding-left" >
                         <button class="button bg-blue fg-white" ng-click="carregarArquivos()"><span class="mif-home"></span> Principal</button>
                         <button class="button" ng-click="novoArquivo(true)"><span class="mif-plus"></span> Novo</button>
                         <button ng-show="selected != null" class="button" ng-click="novoArquivo(false)"><span class="mif-pencil"></span> Editar</button>
