@@ -17,7 +17,7 @@
         <script src="/sgejs/js/metro.min.js"></script>
         <script src="/sgejs/js/angular.min.js"></script>
         <script src="/sgejs/js/angular-ui-router.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>-->
         <script src="servidores.js"></script>
 
         <style type="text/css">
@@ -69,6 +69,9 @@
                 background-color: transparent;
                 top:-200px;
                 left: 200px;
+            }
+            input{
+                text-transform: capitalize
             }
         </style>
     </head>

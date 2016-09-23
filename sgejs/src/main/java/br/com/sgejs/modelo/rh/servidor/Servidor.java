@@ -60,7 +60,7 @@ public class Servidor implements Serializable {
     private String nome, cidadeNascimento, grupoSanguineo;
        
     @OneToMany(cascade = CascadeType.ALL)
-    private List<LinhaFuncional> linhaFuncional = new ArrayList<>();
+    private List<Funcao> funcoes = new ArrayList<>();
    
     @OneToMany(cascade = CascadeType.ALL)
     private List<Dependente> dependentes = new ArrayList<>();
@@ -92,7 +92,7 @@ public class Servidor implements Serializable {
     }
 
     public Date getNascimento() {
-        return nascimento;
+        return this.nascimento;
     }
 
     public void setNascimento(Date nascimento) {
@@ -171,12 +171,12 @@ public class Servidor implements Serializable {
         this.grupoSanguineo = grupoSanguineo;
     }
 
-    public List<LinhaFuncional> getLinhaFuncional() {
-        return linhaFuncional;
+    public List<Funcao> getFuncoes() {
+        return funcoes;
     }
 
-    public void setLinhaFuncional(List<LinhaFuncional> linhaFuncional) {
-        this.linhaFuncional = linhaFuncional;
+    public void setFuncoes(List<Funcao> funcoes) {
+        this.funcoes = funcoes;
     }
 
     public List<Dependente> getDependentes() {
@@ -237,7 +237,6 @@ public class Servidor implements Serializable {
 
     @Override
     public String toString() {
-        return "Servidor{" + "id=" + id + ", nascimento=" + nascimento + ", sexo=" + sexo + ", raca=" + raca + ", ufNascimento=" + ufNascimento + ", estadoCivil=" + estadoCivil + ", instrucao=" + instrucao + ", posGraduacao=" + posGraduacao + ", nome=" + nome + ", cidadeNascimento=" + cidadeNascimento + ", grupoSanguineo=" + grupoSanguineo + ", linhaFuncional=" + linhaFuncional + ", dependentes=" + dependentes + ", graduacoes=" + graduacoes + ", documento=" + documento + ", endereco=" + endereco + ", contato=" + contato + ", filiacao=" + filiacao + ", contaCorrente=" + cc + '}';
+        return "Servidor{" + "id=" + id + ", nascimento=" + nascimento + ", sexo=" + sexo + ", raca=" + raca + ", ufNascimento=" + ufNascimento + ", estadoCivil=" + estadoCivil + ", instrucao=" + instrucao + ", posGraduacao=" + posGraduacao + ", nome=" + nome + ", cidadeNascimento=" + cidadeNascimento + ", grupoSanguineo=" + grupoSanguineo + ", linhaFuncional=" + funcoes + ", dependentes=" + dependentes + ", graduacoes=" + graduacoes + ", documento=" + documento + ", endereco=" + endereco + ", contato=" + contato + ", filiacao=" + filiacao + ", contaCorrente=" + cc + '}';
     }
-
 }

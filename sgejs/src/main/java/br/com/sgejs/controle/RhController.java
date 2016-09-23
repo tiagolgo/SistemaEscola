@@ -53,16 +53,7 @@ public class RhController {
 
     @Consumes("application/json")
     @Post
-    public void setFiliacao(Servidor servidor) {
-        System.out.println("*** JSON ***");
-        System.out.println(servidor);
-        this.result.nothing();
-    }
-
-    @Consumes("application/json")
-    @Post
     public void verificarNome(String nome) {
-        System.out.println("nome: " + nome);
         boolean retorno = this.dao.seExiste(nome.toLowerCase());
         this.result.use(Results.json()).from(retorno, "existe").serialize();
     }

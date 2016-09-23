@@ -26,7 +26,7 @@
         <mapping class="br.com.sgejs.modelo.rh.servidor.Dependente"/>
         <mapping class="br.com.sgejs.modelo.rh.servidor.Endereco"/>
         <mapping class="br.com.sgejs.modelo.rh.servidor.Filiacao"/>
-        <mapping class="br.com.sgejs.modelo.rh.servidor.LinhaFuncional"/>
+        <mapping class="br.com.sgejs.modelo.rh.servidor.Funcao"/>
         <mapping class="br.com.sgejs.modelo.rh.servidor.Graduacao"/>
         <mapping class="br.com.sgejs.modelo.rh.servidor.Servidor"/>
         <mapping class="br.com.sgejs.modelo.rh.servidor.documentos.Cnh"/>

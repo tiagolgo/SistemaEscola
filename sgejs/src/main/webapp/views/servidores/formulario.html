@@ -15,16 +15,17 @@ and open the template in the editor.
                 <li ng-click="item = 3" ng-class="{'v-menu-select':item == 3}"><a href=""><span class=" icon"></span> Escolaridade</a></li>
                 <li ng-click="item = 4" ng-class="{'v-menu-select':item == 4}"><a href=""><span class=" icon"></span> Dependentes</a></li>       
                 <li ng-click="item = 5" ng-class="{'v-menu-select':item == 5}"><a href=""><span class=" icon"></span> Dados Bancários</a></li>
+                <li ng-click="item = 6" ng-class="{'v-menu-select':item == 6}"><a href=""><span class=" icon"></span> Dados Funcionais</a></li>
             </ul>
         </div>
 
         <!--Conteúdo -->
         <div class="cell padding30 no-padding-top no-padding-right text-light" style="overflow-y: scroll" ng-init="item = 1">
-            <form name="form_servidor">
+            <form name="form_servidor" novalidate>
                 <div class="button-group padding5 no-padding-left" >
-                    <button ng-disabled="form_servidor.$invalid" class="button bg-green" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
-                    <a class="button bg-lightOrange" href="#/"><span class="mif-cancel"></span> Cancelar</a>
-                    <button class="button bg-lightRed"><span class="mif-bin"></span> Remover</button>
+                    <button ng-disabled="form_servidor.$invalid" class="button" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
+                    <a class="button" href="#/"><span class="mif-cancel"></span> Cancelar</a>
+                    <button class="button"><span class="mif-bin"></span> Remover</button>
                 </div>
 
                 <!-- Dados Pessoais -->
@@ -38,30 +39,31 @@ and open the template in the editor.
                     <!-- Filiaçao -->
                     <div ng-include="'views/servidores/componentes/filiacao.html'"></div>
                 </div>
-
-                <!-- Documentos -->
-                <div ng-show="item == 2" style="height: auto!important">
-                    <!-- Identidade -->
-                    <div ng-include="'views/servidores/componentes/identidade.html'"></div>
-                    <!-- Titulo Eleitoral -->
-                    <div ng-include="'views/servidores/componentes/titulo.html'"></div>
-                    <!-- CNH -->
-                    <div ng-include="'views/servidores/componentes/cnh.html'"></div>
-                    <!-- Pis/Pasep -->
-                    <div ng-include="'views/servidores/componentes/pis.html'"></div>
-                    <!-- Carteira de Trabalho -->
-                    <div ng-include="'views/servidores/componentes/ctps.html'"></div>
-                    <!-- Documento Militar -->
-                    <div ng-include="'views/servidores/componentes/reservista.html'"></div>
-                </div>
-
-                <!-- Escolaridade -->
-                <div ng-include="'views/servidores/componentes/escolaridade.html'"></div>
-                <!-- Dependentes -->
-                <div ng-include="'views/servidores/componentes/dependentes.html'"></div>
-                <!-- Dados Bancários -->
-                <div ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
             </form>
+
+            <!-- Documentos -->
+            <div ng-show="item == 2" style="height: auto!important">
+                <!-- Identidade -->
+                <div ng-include="'views/servidores/componentes/identidade.html'"></div>
+                <!-- Titulo Eleitoral -->
+                <div ng-include="'views/servidores/componentes/titulo.html'"></div>
+                <!-- CNH -->
+                <div ng-include="'views/servidores/componentes/cnh.html'"></div>
+                <!-- Pis/Pasep -->
+                <div ng-include="'views/servidores/componentes/pis.html'"></div>
+                <!-- Carteira de Trabalho -->
+                <div ng-include="'views/servidores/componentes/ctps.html'"></div>
+                <!-- Documento Militar -->
+                <div ng-include="'views/servidores/componentes/reservista.html'"></div>
+            </div>
+            <!-- Escolaridade -->
+            <div ng-show="item == 3" style="height: auto!important" ng-include="'views/servidores/componentes/escolaridade.html'"></div>
+            <!-- Dependentes -->
+            <div ng-show="item == 4" style="height: auto!important" ng-include="'views/servidores/componentes/dependentes.html'"></div>
+            <!-- Dados Bancários -->
+            <div ng-show="item == 5" style="height: auto!important" ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
+            <!-- Dados Bancários -->
+            <div ng-show="item == 6" style="height: auto!important" ng-include="'views/servidores/componentes/dadosfuncionais.html'"></div>
         </div>
     </div>
 </div>
@@ -71,3 +73,5 @@ and open the template in the editor.
 <div ng-include="'views/servidores/modal_dependente.html'"></div>
 <!-- Modal para inclusão/edição de cursos de graduação -->
 <div ng-include="'views/servidores/modal_graduacao.html'"></div>
+<!-- Modal para inclusão/edição de Função -->
+<div ng-include="'views/servidores/modal_funcao.html'"></div>

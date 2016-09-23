@@ -20,7 +20,7 @@ and open the template in the editor.
                     <div class="cell padding10">
                         <label>* Nome</label>
                         <div class="input-control text full-size">
-                            <input type="text" required ng-model="dependente.nome"/>
+                            <input type="text" ng-model="dependente.nome" required/>
                         </div>
                     </div>
                     <div class="cell size3 padding10">
@@ -34,8 +34,8 @@ and open the template in the editor.
                     <div class="cell padding10">
                         <label>* Grau de Dependência</label>
                         <div class="input-control select full-size">
-                            <select required ng-model="dependente.dependencia">
-                                <option></option>
+                            <select ng-model="dependente.dependencia" required>
+                                <option value=""></option>
                                 <option value="AVÓ">Avó</option>
                                 <option value="BISNETO">Bisneto</option>
                                 <option value="BISAVÓS">Bisavós</option>
@@ -60,8 +60,8 @@ and open the template in the editor.
                     <div class="cell padding10">
                         <label>* Estado Civil</label>
                         <div class="input-control select full-size">
-                            <select required ng-model="dependente.estadoCivil">
-                                <option></option>
+                            <select ng-model="dependente.estadoCivil" required>
+                                <option value=""></option>
                                 <option value="SOLTEIRO">Solteiro(a)</option>
                                 <option value="CASADO">Casado(a)</option>
                                 <option value="VIUVO">Viuvo(a)</option>
@@ -75,8 +75,8 @@ and open the template in the editor.
                     <div class="cell padding10">
                         <label>* Situação Financeira</label>
                         <div class="input-control select full-size">
-                            <select required ng-model="dependente.situacaoFinanceira">
-                                <option></option>
+                            <select ng-model="dependente.situacaoFinanceira" required>
+                                <option value=""></option>
                                 <option value='COM_RENDA'>Com Renda</option>
                                 <option value='DECLARAÇÃO_DE_BENS'>Declaração de Bens</option>
                                 <option value='CREDOR_DE_ALIMENTOS'>Credor de Alimentos</option>
@@ -86,11 +86,11 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            <div class="button-group padding10">
-                <button ng-disabled="form_dependente.$invalid" class="button" ng-click="adicionarDependente()"><span class="mif-floppy-disk icon"></span> Salvar</button>
-                <button class="button" ng-click="fecharModal('#modal_dependente')"><span class="mif-cancel icon"></span> Cancelar</button>
-            </div>
         </form>
+        <div class="button-group padding10">
+            <button ng-disabled="form_dependente.$invalid" class="button" ng-click="adicionarDependente()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+            <button class="button" ng-click="fecharModal('#modal_dependente')"><span class="mif-cancel icon"></span> Cancelar</button>
+        </div>
         <div class="padding10"></div>
     </div>
 </div>

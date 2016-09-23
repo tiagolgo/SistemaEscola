@@ -20,59 +20,71 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/cadastrar",
         templateUrl: "views/servidores/formulario.html",
         controller: "CadastroController"
+    }).state('editar', {
+        url: "/editar/:id",
+        templateUrl: "views/servidores/formulario.html",
+        controller: "CadastroController"
     });
 });
 
-app.controller('CadastroController', function ($scope, $rootScope, $http, $location) {
+app.controller('CadastroController', function ($scope, $state, $http, $location) {
     console.log('cadastro controller');
 
-    function serv() {
-        return {
-            id: null, nascimento: null, sexo: null, raca: null, ufNascimento: null, estadoCivil: null, instrucao: null, posGraduacao: null, nome: null, cidadeNascimento: null, grupoSanguineo: null, linhaFuncional: null,
-            dependentes: [],
-            graduacoes: [],
-            documento: {
-                id: null,
-                identidade: {id: null, numero: null, emissao: null, pais: null, emissor: null, uf: null},
-                pis: {id: null, numero: null, inclusao: null, banco: null},
-                titulo: {id: null, numero: null, zona: null, secao: null, emissao: null, pais: null, uf: null},
-                reservista: {id: null, numero: null, categoria: null},
-                ctps: {id: null, emissao: null, numero: null, serie: null, uf: null},
-                cnh: {id: null, numero: null, categoria: null, emissao: null, vencimento: null},
-                cpf: null},
-            endereco: {id: null, rua: null, bairro: null, municipio: null, numero: null, estado: null, cep: null},
-            contato: {id: null, celular: null, fixo: null, email: null},
-            filiacao: {id: null, pai: null, mae: null},
-            cc: {id: null, banco: null, agencia: null, numero: null}
-        };
-    }
-    $scope.servidor = serv();
+    $scope.graduacao = {};
+    $scope.dependente = {};
+    $scope.servidor = {graduacoes: [], dependentes: []};
 
-    function graduacao() {
-        return{id: null, curso: null, instituicao: null, ano: null};
+    function inicializar() {
+        console.log('Parametro', $state.params.id);
+        var id = null;
+        id = $state.params.id;
+        if (id != null) {
+            $http.post("/sgejs/rh/visualizar", {"id": id}).then(function (response) {
+                console.log('servidor retornado com sucesso', response.data.servidor)
+                $scope.servidor = response.data.servidor;
+            }, function (response) {
+                console.log('erro ao retornar servidor')
+            });
+        }
     }
-    $scope.graduacao = graduacao();
 
-    function dependente() {
-        return {id: null, nome: null, rg: null, dependencia: null, estadoCivil: null, situacaoFinanceira: null};
-    }
-    $scope.dependente = dependente();
+    inicializar();
 
     $scope.salvarServidor = function () {
-        console.log('cadastrar servidor', $scope.servidor);
+        console.log("salvar servidor", $scope.servidor)
         $http.post("/sgejs/rh/salvar", {servidor: $scope.servidor}).then(function (response) {
             console.log('sucesso ao salvar servidor')
+            $.Notify({caption: '', content: ' Servidor Salvo com sucesso!!! ', type: 'success'});
+            $scope.servidor = {};
         }, function () {
-            console.log('erro ao tentar salvar servidor')
+            console.log('erro ao tentar salvar servidor');
         });
     };
 
     $scope.adicionarGraduacao = function () {
-        console.log('adicionar graduacao', $scope.graduacao);
+        $scope.servidor.graduacoes.push(angular.copy($scope.graduacao));
+        console.log('adicionar graduacao', $scope.servidor.graduacoes);
     };
 
     $scope.adicionarDependente = function () {
-        console.log('adicionar dependente', $scope.dependente);
+        var valido = true;
+        var msg = "";
+        angular.forEach($scope.servidor.dependentes, function (item, index) {
+            if (item.nome == $scope.dependente.nome) {
+                valido = false;
+                msg = msg + "Já existe um aluno com esse mesmo nome!";
+            }
+            if (item.rg != null & item.rg == $scope.dependente.rg) {
+                valido = false;
+                msg = msg + "\nJá existe um dependente com esse RG!"
+            }
+        });
+        if (valido) {
+            $scope.servidor.dependentes.push(angular.copy($scope.dependente));
+        } else {
+            alert(msg);
+        }
+        console.log('adicionar dependente', $scope.servidor.dependentes);
     };
 
     $scope.abrirModal = function (id) {
@@ -84,16 +96,15 @@ app.controller('CadastroController', function ($scope, $rootScope, $http, $locat
         var dialog = $(id).data('dialog');
         dialog.close();
     };
-
-
 });
 
 
-app.controller('ListaController', function ($scope, $rootScope, $http, $location) {
+app.controller('ListaController', function ($scope, $state, $rootScope, $http, $location) {
     $scope.servidores = [];
+    $scope.selected = null;
     $scope.carregarServidores = function () {
         $http.get("/sgejs/rh/listar").then(function (response) {
-            console.log('Lista carregada com sucesso!')
+            console.log('Lista carregada com sucesso!');
             $scope.servidores = response.data.lista;
         }, function (response) {
             console.log('Erro ao tentar carregar servidores!');
@@ -102,11 +113,20 @@ app.controller('ListaController', function ($scope, $rootScope, $http, $location
     $scope.carregarServidores();
 
     $scope.editarServidor = function () {
-        console.log('editar servidor');
+        console.log('editar servidor', $scope.selected);
+        if ($scope.selected != null) {
+            $state.go("editar", {id: $scope.servidores[$scope.selected].id});
+        }
     };
 
     $scope.excluirServidor = function () {
-        console.log('editar servidor');
+        if (confirm("Confirma a Exclusão do Servidor?")) {
+            $http.post("/sgejs/rh/remover", {"id": $scope.servidores[$scope.selected].id}).then(function (response) {
+                console.log('servidor removido com sucesso!')
+                $scope.carregarServidores();
+                $.Notify({caption: '', content: ' Servidor Removido com Sucesso!!! ', type: 'success'});
+            });
+        }
     };
 
     $scope.fecharModal = function () {
@@ -116,7 +136,6 @@ app.controller('ListaController', function ($scope, $rootScope, $http, $location
 
     $scope.selecionarLinha = function ($index) {
         $scope.selected = $index;
-        //$scope.arquivoSelecionado = $scope.arquivos[$index];
     };
 
     $scope.autoComplete = function ($event) {
@@ -144,8 +163,8 @@ app.controller('ListaController', function ($scope, $rootScope, $http, $location
             $event.preventDefault();
         }
     };
-    
-    $scope.exibirCharm = function (id,pos) {
+
+    $scope.exibirCharm = function (id, pos) {
         toggleMetroCharm(id, pos);
     };
 });

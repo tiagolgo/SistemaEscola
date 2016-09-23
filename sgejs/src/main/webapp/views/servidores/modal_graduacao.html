@@ -32,16 +32,16 @@ and open the template in the editor.
                     <div class="cell size3 padding10">
                         <label>* Ano</label>
                         <div class="input-control text full-size">
-                            <input type="text" required ng-model="graduacao.curso"/>
+                            <input type="text" required ng-model="graduacao.ano"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="button-group padding10">
-                <button ng-disabled="form_graduacao.$invalid" class="button" ng-click="adicionarGraduacao()"><span class="mif-floppy-disk icon"></span> Salvar</button>
-                <button class="button" ng-click="fecharModal('#modal_graduacao')"><span class="mif-cancel icon"></span> Cancelar</button>
-            </div>
         </form>
+        <div class="button-group padding10">
+            <button ng-disabled="form_graduacao.$invalid" class="button" ng-click="adicionarGraduacao()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+            <button class="button" ng-click="fecharModal('#modal_graduacao')"><span class="mif-cancel icon"></span> Cancelar</button>
+        </div>
         <div class="padding10"></div>
     </div>
 </div>

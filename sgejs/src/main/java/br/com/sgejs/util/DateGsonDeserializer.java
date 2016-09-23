@@ -10,7 +10,6 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,14 +31,11 @@ public class DateGsonDeserializer implements JsonDeserializer<Date> {
 
     @Override
     public Date deserialize(JsonElement je, Type type, JsonDeserializationContext jdc) throws JsonParseException {
-        System.out.println("****** DESERIALIZAR *******");
         try {
-            DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            return format.parse(je.getAsString());
+            return (new SimpleDateFormat("dd/MM/yyyy")).parse(je.getAsString());
         } catch (ParseException ex) {
             Logger.getLogger(DateGsonDeserializer.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-
 }
