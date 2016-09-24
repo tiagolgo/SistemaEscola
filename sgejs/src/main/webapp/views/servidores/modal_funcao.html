@@ -5,15 +5,84 @@ and open the template in the editor.
 -->
 <div class="window" data-role="dialog" id="modal_funcao" data-place="bottom-right" data-width="700px" data-overlay="true" data-overlay-color="op-dark" data-overlay-click-close="true">
     <div class="window-caption bg-darkGreen fg-white">
-        <span class="window-caption-icon"><span class="mif-user-plus"></span></span>
-        <span class="window-caption-title">Adicionar Dependente</span>
+        <span class="window-caption-icon"><span class="mif-plus"></span></span>
+        <span class="window-caption-title">Adicionar Função/Cargo</span>
         <!--<span class="btn-min"></span><span class="btn-max"></span>-->
         <span class="btn-close" ng-click="fecharModal('#modal_funcao')"></span>
     </div>
     <div class="window-content bg-grayLighter">
-    
-        <div class="button-group padding10">
-            <button ng-disabled="form_dependente.$invalid" class="button" ng-click="adicionarDependente()"><span class="mif-floppy-disk icon"></span> Salvar</button>
+        <form name="form_funcao">
+            <div class="flex-grid">
+                <input type="text" hidden ng-model="funcao.id"/>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Função</label>
+                        <div class="input-control full-size text">
+                            <input type="text" ng-model="funcao.nome" required/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Vínculo</label>
+                        <div class="input-control full-size select">
+                            <select ng-model="funcao.vinculo" required>
+                                <option value=""></option>
+                                <option value="QPM">QPM</option>
+                                <option value="REPR">REPR</option>
+                                <option value="SCO2">SCO2</option>
+                                <option value="QFEB">QFEB</option>
+                                <option value="S100">S100</option>
+                                <option value="READ">READ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Início</label>
+                        <div class="input-control full-size text" data-role="datepicker">
+                            <input type="text" ng-model="funcao.inicio" required/>
+                            <button class="button"><span class="mif-calendar"></span></button>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Fim</label>
+                        <div class="input-control full-size text" data-role="datepicker">
+                            <input type="text" ng-model="funcao.fim" required/>
+                            <button class="button"><span class="mif-calendar"></span></button>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Carga Horária</label>
+                        <div class="input-control full-size text">
+                            <input type="text" ng-model="funcao.cargaHoraria" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <p>Situação</p>
+                        <label class="input-control radio small-check">
+                            <input type="radio" name="situacao" ng-model="funcao.situacao" required/>
+                            <span class="check"></span>
+                            <span class="caption">Ativo</span>
+                        </label>                    
+                        <label class="input-control radio small-check">
+                            <input type="radio" name="situacao" ng-model="funcao.situacao" required/>
+                            <span class="check"></span>
+                            <span class="caption">Inativo</span>
+                        </label>                    
+                        <label class="input-control radio small-check">
+                            <input type="radio" name="situacao" ng-model="funcao.situacao" required/>
+                            <span class="check"></span>
+                            <span class="caption">Afastado</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="button-group padding10 place-right">
+            <button ng-disabled="form_funcao.$invalid" class="button" ng-click="adicionarDependente()"><span class="mif-floppy-disk icon"></span> Salvar</button>
             <button class="button" ng-click="fecharModal('#modal_dependente')"><span class="mif-cancel icon"></span> Cancelar</button>
         </div>
         <div class="padding10"></div>

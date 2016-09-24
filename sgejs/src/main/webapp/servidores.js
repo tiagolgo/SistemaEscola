@@ -32,7 +32,8 @@ app.controller('CadastroController', function ($scope, $state, $http, $location)
 
     $scope.graduacao = {};
     $scope.dependente = {};
-    $scope.servidor = {graduacoes: [], dependentes: []};
+    $scope.funcao = {};
+    $scope.servidor = {funcoes: [], graduacoes: [], dependentes: []};
 
     function inicializar() {
         console.log('Parametro', $state.params.id);
