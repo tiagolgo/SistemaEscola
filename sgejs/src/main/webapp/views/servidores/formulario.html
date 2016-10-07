@@ -3,67 +3,65 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div class="flex-grid" style="height: 100%!important">
+<div class="button-group padding5 no-padding-left" style="height: 10%!important">
+    <button ng-disabled="form_servidor.$invalid" class="button" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
+    <a class="button" href="#/"><span class="mif-cancel"></span> Cancelar</a>
+    <button class="button"><span class="mif-bin"></span> Remover</button>
+</div>
 
-    <div class="row cell-auto-size" style="height: 100%!important">
-        <!-- Filtro de exibição de arquivo -->
-        <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray no-padding-right">
-            <h3 class="text-light">Menu Principal</h3>
-            <ul class="v-menu full-size" style='background-color: transparent!important'>
-                <li ng-click="item = 1" ng-class="{'v-menu-select':item == 1}"><a href=""><span class=" icon"></span> Informações Básicas</a></li>
-                <li ng-click="item = 2" ng-class="{'v-menu-select':item == 2}"><a href=""><span class=" icon"></span> Documentos</a></li>
-                <li ng-click="item = 3" ng-class="{'v-menu-select':item == 3}"><a href=""><span class=" icon"></span> Escolaridade</a></li>
-                <li ng-click="item = 4" ng-class="{'v-menu-select':item == 4}"><a href=""><span class=" icon"></span> Dependentes</a></li>       
-                <li ng-click="item = 5" ng-class="{'v-menu-select':item == 5}"><a href=""><span class=" icon"></span> Dados Bancários</a></li>
-                <li ng-click="item = 6" ng-class="{'v-menu-select':item == 6}"><a href=""><span class=" icon"></span> Dados Funcionais</a></li>
-            </ul>
-        </div>
-
-        <!--Conteúdo -->
-        <div class="cell padding30 no-padding-top no-padding-right text-light" style="overflow-y: scroll" ng-init="item = 1">
+<div class="tabcontrol2" data-role="tabcontrol" style="height: 90%!important">
+    <ul class="tabs">
+        <li class="active"><a href="#frame_1">Informações Básicas</a></li>
+        <li class=""><a href="#frame_2">Documentos</a></li>
+        <li class=""><a href="#frame_3">Escolaridade</a></li>
+        <li class=""><a href="#frame_4">Dependentes</a></li>
+        <li class=""><a href="#frame_5">Dados Bancários</a></li>
+        <li class=""><a href="#frame_6">Dados Funcionais</a></li>
+    </ul>
+    <div class="frames" style="height: 100%!important;overflow-y: scroll">
+        <!-- Informações Básicas -->
+        <div class="frame" id="frame_1" style="display: block;">
             <form name="form_servidor" novalidate>
-                <div class="button-group padding5 no-padding-left" >
-                    <button ng-disabled="form_servidor.$invalid" class="button" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
-                    <a class="button" href="#/"><span class="mif-cancel"></span> Cancelar</a>
-                    <button class="button"><span class="mif-bin"></span> Remover</button>
-                </div>
-
-                <!-- Dados Pessoais -->
-                <div ng-show="item == 1" style="height: auto!important">
-                    <!--Dados Pessoais-->
-                    <div ng-include="'views/servidores/componentes/dadospessoais.html'"></div>
-                    <!-- Endereço -->
-                    <div ng-include="'views/servidores/componentes/endereco.html'"></div>
-                    <!-- Contato -->
-                    <div ng-include="'views/servidores/componentes/contato.html'"></div>
-                    <!-- Filiaçao -->
-                    <div ng-include="'views/servidores/componentes/filiacao.html'"></div>
-                </div>
+                <!--Dados Pessoais-->
+                <div ng-include="'views/servidores/componentes/dadospessoais.html'"></div>
+                <!-- Endereço -->
+                <div ng-include="'views/servidores/componentes/endereco.html'"></div>
+                <!-- Contato -->
+                <div ng-include="'views/servidores/componentes/contato.html'"></div>
+                <!-- Filiaçao -->
+                <div ng-include="'views/servidores/componentes/filiacao.html'"></div>
             </form>
-
-            <!-- Documentos -->
-            <div ng-show="item == 2" style="height: auto!important">
-                <!-- Identidade -->
-                <div ng-include="'views/servidores/componentes/identidade.html'"></div>
-                <!-- Titulo Eleitoral -->
-                <div ng-include="'views/servidores/componentes/titulo.html'"></div>
-                <!-- CNH -->
-                <div ng-include="'views/servidores/componentes/cnh.html'"></div>
-                <!-- Pis/Pasep -->
-                <div ng-include="'views/servidores/componentes/pis.html'"></div>
-                <!-- Carteira de Trabalho -->
-                <div ng-include="'views/servidores/componentes/ctps.html'"></div>
-                <!-- Documento Militar -->
-                <div ng-include="'views/servidores/componentes/reservista.html'"></div>
-            </div>
-            <!-- Escolaridade -->
-            <div ng-show="item == 3" style="height: auto!important" ng-include="'views/servidores/componentes/escolaridade.html'"></div>
-            <!-- Dependentes -->
-            <div ng-show="item == 4" style="height: auto!important" ng-include="'views/servidores/componentes/dependentes.html'"></div>
-            <!-- Dados Bancários -->
-            <div ng-show="item == 5" style="height: auto!important" ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
-            <!-- Dados Bancários -->
-            <div ng-show="item == 6" style="height: auto!important" ng-include="'views/servidores/componentes/dadosfuncionais.html'"></div>
+        </div>
+        <!-- Documentos -->
+        <div class="frame" id="frame_2" style="display: none;">
+            <!-- Identidade -->
+            <div ng-include="'views/servidores/componentes/identidade.html'"></div>
+            <!-- Titulo Eleitoral -->
+            <div ng-include="'views/servidores/componentes/titulo.html'"></div>
+            <!-- CNH -->
+            <div ng-include="'views/servidores/componentes/cnh.html'"></div>
+            <!-- Pis/Pasep -->
+            <div ng-include="'views/servidores/componentes/pis.html'"></div>
+            <!-- Carteira de Trabalho -->
+            <div ng-include="'views/servidores/componentes/ctps.html'"></div>
+            <!-- Documento Militar -->
+            <div ng-include="'views/servidores/componentes/reservista.html'"></div>
+        </div>
+        <!-- Escolaridade -->
+        <div class="frame" id="frame_3" style="display: none;">
+            <div style="height: auto!important" ng-include="'views/servidores/componentes/escolaridade.html'"></div>
+        </div>
+        <!-- Dependentes -->
+        <div class="frame" id="frame_4" style="display: none;">
+            <div style="height: auto!important" ng-include="'views/servidores/componentes/dependentes.html'"></div>
+        </div>
+        <!-- Dados Bancários -->
+        <div class="frame" id="frame_5" style="display: none;">
+            <div style="height: auto!important" ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
+        </div>
+        <!-- Dados Funcionais -->
+        <div class="frame" id="frame_6" style="display: none;">
+            <div  style="height: auto!important" ng-include="'views/servidores/componentes/dadosfuncionais.html'"></div>
         </div>
     </div>
 </div>

@@ -8,22 +8,24 @@ and open the template in the editor.
     <div class="row cell-auto-size" style="height: 100%!important">
         <!-- Filtro de exibição de arquivo -->
         <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray">
-            <h3 class="text-light">Menu Principal</h3>
+            <h3 class="text-light">Servidores</h3>
             <ul class="v-menu full-size" style='background-color: transparent!important'>
                 <li><a href=""><span class=" icon"></span> Ativos</a></li>
                 <li><a href=""><span class=" icon"></span> Inativos</a></li>
+                <li><a href=""><span class=" icon"></span> Afastados</a></li>
             </ul>
         </div>
 
         <!--Conteúdo/Arquivos -->
         <div class="cell margin20 no-margin-top no-margin-right">
-            <!-- Opções de arquivo -->
-            <div class="flex-grid">
+            <ui-view style="height: 100%!important">
+                <!-- Opções de arquivo -->
                 <div class="button-group" >
                     <!--<button class="button bg-lightBlue" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>-->
-                    <button class="button bg-lightBlue" ui-sref="cadastro"><span class="mif-plus"></span> Novo</button>
-                    <button class="button bg-lightOrange" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
-                    <button class="button bg-lightRed" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
+                    <button class="button bg-lightBlue" ui-sref=".cadastro"><span class="mif-plus"></span> Novo</button>
+                    <button class="button bg-lightOrange" ng-show="selected != null" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
+                    <button class="button bg-lightRed" ng-show="selected != null" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
+                    <button class="button" ng-show="selected != null" ng-click="visualizarServidor()"><span class=""></span> Visualizar</button>
                     <!-- left -->
                     <div class="dropdown-button">
                         <button class="button dropdown-toggle">Menu</button>
@@ -39,31 +41,31 @@ and open the template in the editor.
                         <h3 class="text-light">Relação de Servidores</h3>
                     </div>                   
                 </div>
-            </div>
-            <!-- Lista de Servidores -->
-            <div class="row" style="height: 90%;overflow-y: scroll">
-                <table class="table striped hovered full-size">
-                    <thead>
-                        <tr>
-                            <td>Nome</td>
-                            <td>Função</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody class="capitaliar">
-                        <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
-                        <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
-                            <td>{{s.nome}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <!-- Lista de Servidores -->
+                <div class="row" style="height: 90%;overflow-y: scroll">
+                    <table class="table striped hovered full-size">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Função</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody class="capitaliar">
+                            <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
+                            <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                                <td>{{s.nome}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ui-view>
         </div>
     </div>
 </div>

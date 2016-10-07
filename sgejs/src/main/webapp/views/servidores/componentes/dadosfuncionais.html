@@ -21,9 +21,9 @@ and open the template in the editor.
         </tr>
     </thead>
     <tbody>
-        <tr style="text-transform: capitalize">
-            <td></td>
-            <td></td>
+        <tr style="text-transform: capitalize" ng-repeat="f in servidor.funcoes">
+            <td>{{f.nome}}</td>
+            <td>{{f.situacao}}</td>
             <td></td>
             <td></td>
             <td></td>

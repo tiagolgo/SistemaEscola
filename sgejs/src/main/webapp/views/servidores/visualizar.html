@@ -1,0 +1,482 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="flex-grid" style="height: 100%!important">
+
+    <div class="row cell-auto-size" style="height: 100%!important">
+        <!-- Filtro de exibição de arquivo -->
+        <div class="cell size3 padding5 text-light no-padding-top bg-lighterGray no-print">
+            <h3 class="text-light">Servidores</h3>
+            <p>Selecione um Servidor para visualizar os dados.</p>
+            <table class="table striped hovered full-size">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                    </tr>
+                </thead>
+                <tbody class="capitaliar">
+                    <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                        <td>{{s.nome}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="cell padding10 no-padding-top text-light" style="overflow-y: scroll" ng-init="item = 1">
+                <span class="button-group">
+                <button class="button "><span class="mif-print"></span> Imprimir</button>
+            </span>
+
+            <!--Dados Pessoais-->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom">Dados Pessoais</h3>
+            <div style="border: 1px solid #999!important">
+                <div class="row cell-auto-size" >
+                    <div class="cell padding10">
+                        <label>* Nome</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.nome" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10 size2">
+                        <label>* Nascimento</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.nascimento" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10 size4">
+                        <label>* Município</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.cidadeNascimento" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10 size2">
+                        <label>* Estado</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.ufNascimento" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>* Sexo</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.sexo" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>* Raça</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.raca" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Grupo Sanguíneo</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.grupoSanguineo" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>* Estado Civil</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.estadoCivil" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endereço -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Endereço</h3>
+            <div style="border: 1px solid #999!important">
+                <div class="row cell-auto-size" >
+                    <div class="cell padding10">
+                        <label>Rua</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.endereco.rua" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell size2 padding10">
+                        <label>Número</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.endereco.numero" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Cep</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.endereco.cep" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Bairro</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.endereco.bairro" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Município</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.endereco.municipio"/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Estado</label>
+                        <div class="input-control select full-size">
+                            <input type="text" ng-model="servidor.endereco.estado" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contato -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Contato</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Celular</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.contato.celular" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Residencial</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.contato.fixo" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Recado</label>
+                    <div class="input-control select full-size">
+                        <input type="text" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Email</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.contato.email" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filiaçao -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Filiação</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Pai</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.filiacao.pai" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Mãe</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.filiacao.mae" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identidade -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Documento de Identidade</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Número</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.identidade.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Date de Emissão</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.identidade.emissao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>UF</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.documento.identidade.uf" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Órgão Emissor</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.documento.identidade.emissor" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Titulo Eleitoral -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Título Eleitoral</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Número</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.titulo.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Zona</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.titulo.zona" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Seção</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.titulo.secao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Emissão</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.titulo.emissao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>UF</label>
+                    <div class="input-control select full-size">
+                        <input type="text" ng-model="servidor.documento.titulo.uf" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CNH -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Carteira Nacional de Habilitação</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Número</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.cnh.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Categoria</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.cnh.categoria" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Emissão</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.cnh.emissao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Vencimento</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.cnh.vencimento" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pis/Pasep -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">PIS/PASEP</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Número</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.pis.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Data de Inclusão</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.pis.inclusao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Banco</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.pis.banco" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carteira de Trabalho -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Carteira de Trabalho</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Número</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.ctps.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Série</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.ctps.serie" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Data de Emissão</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.ctps.emissao" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>UF</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.documento.ctps.uf" disabled/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documento Militar -->
+            <div class="row cell-auto-size" style="margin-top: 40px">
+                <div class="cell">
+                    <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom">CPF</h3>
+                    <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                        <div class="cell padding10">
+                            <label>Número</label>
+                            <div class="input-control text full-size">
+                                <input type="text" ng-model="servidor.cpf" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell" style="margin-left: 20px">
+                    <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom">Documento Militar</h3>
+                    <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                        <div class="cell padding10">
+                            <label>Número</label>
+                            <div class="input-control text full-size">
+                                <input type="text" ng-model="servidor.documento.reservista.numero" disabled/>
+                            </div>
+                        </div>
+                        <div class="cell padding10">
+                            <label>Categoria</label>
+                            <div class="input-control text full-size">
+                                <input type="text" ng-model="servidor.documento.reservista.categoria" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Escolaridade -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Escolaridade</h3>
+            <div style="border: 1px solid #999!important">
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Instrução</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.instrucao" disabled/>
+                        </div>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Curso de Pós-Graduação</label>
+                        <div class="input-control text full-size">
+                            <input type="text" ng-model="servidor.posGraduacao" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cell-auto-size">
+                    <div class="cell padding10">
+                        <label>Cursos de Graduação</label>
+                        <table class="table striped hovered full-size">
+                            <thead>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Instituição</td>
+                                    <td>Conclusão</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="g in servidor.graduacoes" style="text-transform: capitalize">
+                                    <td>{{g.curso}}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dependentes -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Dependentes</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <table class="table striped hovered full-size">
+                        <thead>
+                            <tr>
+                                <td>Nome</td>
+                                <td>Identidade</td>
+                                <td>Parentesco</td>
+                                <td>Estado Civil</td>
+                                <td>Situação Financeira</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="d in servidor.dependentes" style="text-transform: capitalize">
+                                <td>{{d.nome}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Dados Bancários -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Conta Bancária</h3>
+            <div class="row cell-auto-size" style="border: 1px solid #999!important">
+                <div class="cell padding10">
+                    <label>Banco</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.cc.banco" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Agencia</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.cc.agencia" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Conta</label>
+                    <div class="input-control text full-size">
+                        <input type="text" ng-model="servidor.cc.numero" disabled/>
+                    </div>
+                </div>
+                <div class="cell padding10">
+                    <label>Tipo de Conta</label>
+                    <div class="input-control select full-size">
+                        <select>
+                            <option>Conta Corrente</option>
+                        </select>                 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dados Bancários -->
+            <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Dados Funcionais</h3>
+            <table class="table striped hovered full-size no-margin-top" style="border: 1px solid #999!important">
+                <thead>
+                    <tr>
+                        <td>Função</td>
+                        <td>Situação</td>
+                        <td>Vínculo</td>
+                        <td>Carga Horária</td>
+                        <td>Início</td>
+                        <td>Fim</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-transform: capitalize" ng-repeat="f in servidor.funcoes">
+                        <td>{{f.nome}}</td>
+                        <td>{{f.situacao}}</td>
+                        <td>{{f.vinculo}}</td>
+                        <td>{{f.cargaHoraria}}</td>
+                        <td>{{f.inicio}}</td>
+                        <td>{{f.fim}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

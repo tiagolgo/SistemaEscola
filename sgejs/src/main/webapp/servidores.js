@@ -11,12 +11,12 @@ var app = angular.module("servidores", ["ui.router"]);
 app.config(function ($stateProvider, $urlRouterProvider) {
     //$locationProvider.html5Mode(true);
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
-    $urlRouterProvider.otherwise("/lista");
-    $stateProvider.state('lista', {
-        url: "/lista",
+    $urlRouterProvider.otherwise("/home");
+    $stateProvider.state('home', {
+        url: "/home",
         templateUrl: "views/servidores/lista.html",
         controller: "ListaController"
-    }).state('cadastro', {
+    }).state('home.cadastro', {
         url: "/cadastrar",
         templateUrl: "views/servidores/formulario.html",
         controller: "CadastroController"
@@ -24,10 +24,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/editar/:id",
         templateUrl: "views/servidores/formulario.html",
         controller: "CadastroController"
+    }).state('visualizar', {
+        url: "/visualizar/:id",
+        templateUrl: "views/servidores/visualizar.html",
+        controller: "VisualizarController"
     });
 });
 
-app.controller('CadastroController', function ($scope, $state, $http, $location) {
+app.controller('CadastroController', function ($scope, $state, $http) {
     console.log('cadastro controller');
 
     $scope.graduacao = {};
@@ -88,6 +92,12 @@ app.controller('CadastroController', function ($scope, $state, $http, $location)
         console.log('adicionar dependente', $scope.servidor.dependentes);
     };
 
+    $scope.adicionarFuncao = function () {
+        console.log('adicionar funcao');
+        $scope.servidor.funcoes.push(angular.copy($scope.funcao));
+        $scope.funcao = {};
+    };
+
     $scope.abrirModal = function (id) {
         var dialog = $(id).data('dialog');
         dialog.open();
@@ -99,8 +109,49 @@ app.controller('CadastroController', function ($scope, $state, $http, $location)
     };
 });
 
+app.controller('VisualizarController', function ($scope, $state, $http) {
+    $scope.servidores = [];
+    $scope.selected = null;
 
-app.controller('ListaController', function ($scope, $state, $rootScope, $http, $location) {
+    function inicializar() {
+        var id = $state.params.id;
+        $http.post("/sgejs/rh/visualizar", {"id": id}).then(function (response) {
+            console.log('servidor retornado com sucesso', response.data.servidor)
+            $scope.servidor = response.data.servidor;
+        }, function (response) {
+            console.log('erro ao retornar servidor')
+        });
+    }
+
+    $scope.carregarServidores = function () {
+        $http.get("/sgejs/rh/listar").then(function (response) {
+            console.log('Lista carregada com sucesso!');
+            $scope.servidores = response.data.lista;
+        }, function (response) {
+            console.log('Erro ao tentar carregar servidores!');
+        });
+    };
+    $scope.carregarServidores();
+
+    $scope.selecionarLinha = function ($index) {
+        $scope.selected = $index;
+        var id = null;
+        angular.forEach($scope.servidores, function (item, index) {
+            if ($index == index) {
+                id = $scope.servidores[index].id;
+            }
+        });
+
+        $http.post("/sgejs/rh/visualizar", {"id": id}).then(function (response) {
+            $scope.servidor = response.data.servidor;
+        }, function (response) {
+            console.log('erro ao retornar servidor');
+        });
+    };
+
+});
+
+app.controller('ListaController', function ($scope, $state, $http) {
     $scope.servidores = [];
     $scope.selected = null;
     $scope.carregarServidores = function () {
@@ -128,6 +179,11 @@ app.controller('ListaController', function ($scope, $state, $rootScope, $http, $
                 $.Notify({caption: '', content: ' Servidor Removido com Sucesso!!! ', type: 'success'});
             });
         }
+    };
+
+    $scope.visualizarServidor = function () {
+        console.log('visualizar');
+        $state.go("visualizar", {id: $scope.servidores[$scope.selected].id});
     };
 
     $scope.fecharModal = function () {

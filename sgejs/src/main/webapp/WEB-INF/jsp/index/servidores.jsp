@@ -12,6 +12,7 @@
         <title>Servidores</title>
         <link href="/sgejs/css/metro-icons.min.css" rel="stylesheet">
         <link href="/sgejs/css/metro.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/sgejs/css/print.css"  media="print" />
 
         <script src="/sgejs/js/jquery.min.js"></script>
         <script src="/sgejs/js/metro.min.js"></script>
@@ -19,7 +20,6 @@
         <script src="/sgejs/js/angular-ui-router.min.js"></script>
         <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>-->
         <script src="servidores.js"></script>
-
         <style type="text/css">
             .table thead {
                 border-bottom: 1px solid #999;
@@ -77,7 +77,7 @@
     </head>
     <body>
         <!-- App Bar -->
-        <div class="app-bar flex-grid">
+        <div class="app-bar flex-grid no-print">
             <div class="row cell-auto-size">
                 <div class="cell size2">
                     <a class="app-bar-element" id="toggle-tiles-dropdown">
@@ -95,21 +95,21 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#/" class="app-bar-element"> Servidores</a>
+                    <a href="#/" class="app-bar-element"> Recursos Humanos</a>
                 </div>
 
                 <div class="cell">
                     <div class="input-control text full-size">
-                            <input type="text" placeholder="Localizar Servidor" ng-keypress="autoComplete($event)"/>
-                            <button class="button"><span class="mif-search"></span></button>
-                            <table class="table hovered bg-lighterGray fg-dark capitaliar no-margin-top" style="z-index: 1000;position: absolute">
-                                <!--<tbody>
-                                    <tr>
-                                        <td class="paddingP"></td>
-                                    </tr>
-                                </tbody>-->
-                            </table>
-                        </div>
+                        <input type="text" placeholder="Localizar Servidor" ng-keypress="autoComplete($event)"/>
+                        <button class="button"><span class="mif-search"></span></button>
+                        <table class="table hovered bg-lighterGray fg-dark capitaliar no-margin-top" style="z-index: 1000;position: absolute">
+                            <!--<tbody>
+                                <tr>
+                                    <td class="paddingP"></td>
+                                </tr>
+                            </tbody>-->
+                        </table>
+                    </div>
                     <!--
                     <div class="button-group padding5 no-padding-left" >
                         <button class="button bg-lightBlue" ui-sref="cadastro"><span class="mif-plus"></span> Novo</button>
