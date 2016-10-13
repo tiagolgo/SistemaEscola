@@ -73,12 +73,16 @@
             input{
                 text-transform: capitalize
             }
+            .upper-case{
+                text-transform: uppercase;
+                font-weight: bold
+            }
         </style>
     </head>
-    <body>
+    <body ng-controller="ListaController">
         <!-- App Bar -->
         <div class="app-bar flex-grid no-print">
-            <div class="row cell-auto-size">
+            <div class="row cell-auto-size" style="border-bottom: .5px solid white">
                 <div class="cell size2">
                     <a class="app-bar-element" id="toggle-tiles-dropdown">
                         <span  class="mif-apps mif-2x"></span>
@@ -95,7 +99,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#/" class="app-bar-element"> Recursos Humanos</a>
+                    <a href="#/" class="app-bar-element text-bold" style="font-size: 20px">Maria Cândida</a>
                 </div>
 
                 <div class="cell">
@@ -110,32 +114,121 @@
                             </tbody>-->
                         </table>
                     </div>
-                    <!--
-                    <div class="button-group padding5 no-padding-left" >
-                        <button class="button bg-lightBlue" ui-sref="cadastro"><span class="mif-plus"></span> Novo</button>
-                        <button class="button bg-lightOrange" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
-                        <button class="button bg-lightRed" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
-                        <div class="dropdown-button">
-                            <button class="button dropdown-toggle">Menu</button>
-                            <ul class="split-content d-menu" data-role="dropdown">
-                                <li><a href="#">Reply</a></li>
-                                <li><a href="#">Reply All</a></li>
-                                <li><a href="#">Forward</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    -->
                 </div>
 
                 <div class="cell">
                     <div class="app-bar-element place-right text-light">
-                        C.E. Maria Cândida de Jesus - E.F.M. <img class="icon" style="border-radius: 50%" src="/sgejs/img/icone.jpg"/>
+                        <img class="icon" style="border-radius: 50%" src="/sgejs/img/icone.jpg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row cell-auto-size">
+                <div class="cell size2">
+                    <!--<h3 class="text-light">Servidores</h3>-->
+                    <ul class="app-bar-menu">
+                        <li>
+                            <a href="" class="dropdown-toggle" style="font-size: 20px">Servidores</a>
+                            <ul class="d-menu" data-role="dropdown">
+                                <li><a href="">Trocar Período Letivo</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cell">
+                    <div class="button-group padding5 no-padding-left" >
+                        <button class="button" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>
+                        <button class="button bg-lightOrange" ng-show="selected != null" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
+                        <button class="button bg-lightRed" ng-show="selected != null" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
+                        <button class="button" ng-show="selected != null" ng-click="visualizarServidor()"><span class=""></span> Detalhar</button>
                     </div>
                 </div>
             </div>
         </div><!-- End App Bar -->
 
-        <div ui-view style="height: 90%!important"></div>
+        <div class="flex-grid padding5" style="height: 84%!important">
+
+            <div class="row cell-auto-size" style="height: 100%!important">
+                <!-- Filtro de exibição de arquivo -->
+                <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray">
+                    <ul class="v-menu full-size">
+                        <li class="menu-title">Página Inicial</li>
+                        <li><a href="#"><span class="mif-home icon"></span> Home</a></li>
+                        <li class="divider"></li>
+                        <li class="menu-title">Opções de Exibição</li>
+                        <li><a href="#"><span class="mif-user icon"></span> Ativos</a></li>
+                        <li><a href="#"><span class="mif-calendar icon"></span> Afastados</a></li>
+                        <li><a href="#"><span class="mif-image icon"></span> Photo</a></li>
+                        <li class="divider"></li>
+                        <li class="menu-title">Opções de Relatórios</li>
+                        <li>
+                            <a href="#" class="dropdown-toggle"><span class="mif-my-location icon"></span> Relatórios</a>
+                            <ul class="d-menu" data-role="dropdown">
+                                <li class="menu-title">Gerar Relatório</li>
+                                <li><a href="#">Lista de Servidores</a></li>
+                                <li><a href="#">Professores</a></li>
+                                <li><a href="#">Agentes Educacionais I</a></li>
+                                <li><a href="#">Agentes Educacionais II</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Conteúdo/Arquivos -->
+                <div class="cell margin20 no-margin-top no-margin-right no-margin-bottom" style="height: 100%!important;overflow-y: scroll">
+
+                    <ui-view>
+                        <!--
+                        <div class="row cell-auto-size">
+                            <div class="cell">
+                                <h3 class="text-light">Relação de Servidores 2015</h3>
+                            </div>                   
+                        </div>
+                        -->
+                        <div class="tabcontrol2" data-role="tabcontrol">
+                            <ul class="tabs">
+                                <li class="active"><a href="#frame_1">Principal</a></li>
+                                <li class=""><a href="#frame_2">Docentes</a></li>
+                                <li class=""><a href="#frame_3">Agente Educadional 1</a></li>
+                                <li class=""><a href="#frame_4">Agente Educadional 2</a></li>
+                                <li class=""><a href="#frame_5">Equipe Pedagógica</a></li>
+                                <li class=""><a href="#frame_6">Direção</a></li>
+                            </ul>
+                            <div class="frames">
+                                <div id="frame_1" class="frame" style="display: block">
+                                    <!-- Lista de Servidores -->
+                                    <div class="row">
+                                        <table class="table striped hovered full-size">
+                                            <thead>
+                                                <tr>
+                                                    <td></td>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="capitaliar">
+                                                <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
+                                                <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                                                    <td>{{s.nome}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="frame_2" class="frame" style="display: none"></div>
+                                <div id="frame_3" class="frame" style="display: none"></div>
+                                <div id="frame_4" class="frame" style="display: none"></div>
+                                <div id="frame_5" class="frame" style="display: none"></div>
+                                <div id="frame_6" class="frame" style="display: none"></div>
+                            </div>
+                        </div>
+
+                    </ui-view>
+
+                </div>
+            </div>
+        </div>
+
+        <div ng-include="'views/servidores/charm_servidor.html'"></div>
+
 
     </body>
 </html>

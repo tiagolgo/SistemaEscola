@@ -8,7 +8,6 @@ and open the template in the editor.
     <div class="row cell-auto-size" style="height: 100%!important">
         <!-- Filtro de exibição de arquivo -->
         <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray">
-            <h3 class="text-light">Servidores</h3>
             <ul class="v-menu full-size" style='background-color: transparent!important'>
                 <li><a href=""><span class=" icon"></span> Ativos</a></li>
                 <li><a href=""><span class=" icon"></span> Inativos</a></li>
@@ -18,54 +17,62 @@ and open the template in the editor.
 
         <!--Conteúdo/Arquivos -->
         <div class="cell margin20 no-margin-top no-margin-right">
-            <ui-view style="height: 100%!important">
-                <!-- Opções de arquivo -->
+
+
+
+                <!-- Opções de arquivo --
                 <div class="button-group" >
-                    <!--<button class="button bg-lightBlue" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>-->
+                    <!--<button class="button bg-lightBlue" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>--
                     <button class="button bg-lightBlue" ui-sref=".cadastro"><span class="mif-plus"></span> Novo</button>
                     <button class="button bg-lightOrange" ng-show="selected != null" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
                     <button class="button bg-lightRed" ng-show="selected != null" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
-                    <button class="button" ng-show="selected != null" ng-click="visualizarServidor()"><span class=""></span> Visualizar</button>
-                    <!-- left -->
-                    <div class="dropdown-button">
-                        <button class="button dropdown-toggle">Menu</button>
-                        <ul class="split-content d-menu" data-role="dropdown">
-                            <li><a href="#">Reply</a></li>
-                            <li><a href="#">Reply All</a></li>
-                            <li><a href="#">Forward</a></li>
-                        </ul>
-                    </div>
+                    <button class="button" ng-show="selected != null" ng-click="visualizarServidor()"><span class=""></span> Detalhar</button>
                 </div>
+                -->
+                
                 <div class="row cell-auto-size">
                     <div class="cell">
                         <h3 class="text-light">Relação de Servidores</h3>
                     </div>                   
                 </div>
-                <!-- Lista de Servidores -->
-                <div class="row" style="height: 90%;overflow-y: scroll">
-                    <table class="table striped hovered full-size">
-                        <thead>
-                            <tr>
-                                <td>Nome</td>
-                                <td>Função</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody class="capitaliar">
-                            <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
-                            <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
-                                <td>{{s.nome}}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                
+
+                <div class="tabcontrol2" data-role="tabcontrol">
+                    <ul class="tabs">
+                        <li class="active"><a href="#frame_1">Geral</a></li>
+                        <li class=""><a href="#frame_2">Docentes</a></li>
+                        <li class=""><a href="#frame_3">Agente Educadional 1</a></li>
+                        <li class=""><a href="#frame_4">Agente Educadional 2</a></li>
+                        <li class=""><a href="#frame_5">Equipe Pedagógica</a></li>
+                        <li class=""><a href="#frame_6">Direção</a></li>
+                    </ul>
+                    <div class="frames">
+                        <div id="frame_1" class="frame" style="display: block">
+                            <!-- Lista de Servidores -->
+                            <div class="row" style="height: 90%;overflow-y: scroll">
+                                <table class="table striped hovered full-size">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="capitaliar">
+                                        <!---<tr ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">-->
+                                        <tr ng-repeat="s in servidores" ng-click="selecionarLinha($index)" ng-class="{'selecionada':selected == $index}">
+                                            <td>{{s.nome}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="frame_2" class="frame" style="display: none"></div>
+                        <div id="frame_3" class="frame" style="display: none"></div>
+                        <div id="frame_4" class="frame" style="display: none"></div>
+                        <div id="frame_5" class="frame" style="display: none"></div>
+                        <div id="frame_6" class="frame" style="display: none"></div>
+                    </div>
                 </div>
-            </ui-view>
+
         </div>
     </div>
 </div>

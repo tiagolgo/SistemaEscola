@@ -13,10 +13,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     //$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
     $urlRouterProvider.otherwise("/home");
     $stateProvider.state('home', {
-        url: "/home",
-        templateUrl: "views/servidores/lista.html",
-        controller: "ListaController"
-    }).state('home.cadastro', {
+        url: "/home"
+    }).state('cadastro', {
         url: "/cadastrar",
         templateUrl: "views/servidores/formulario.html",
         controller: "CadastroController"
@@ -154,15 +152,15 @@ app.controller('VisualizarController', function ($scope, $state, $http) {
 app.controller('ListaController', function ($scope, $state, $http) {
     $scope.servidores = [];
     $scope.selected = null;
-    $scope.carregarServidores = function () {
+    function carregarServidores() {
+        console.log('carregar servidores...')
         $http.get("/sgejs/rh/listar").then(function (response) {
             console.log('Lista carregada com sucesso!');
             $scope.servidores = response.data.lista;
         }, function (response) {
             console.log('Erro ao tentar carregar servidores!');
         });
-    };
-    $scope.carregarServidores();
+    }
 
     $scope.editarServidor = function () {
         console.log('editar servidor', $scope.selected);
@@ -175,7 +173,7 @@ app.controller('ListaController', function ($scope, $state, $http) {
         if (confirm("Confirma a Exclusão do Servidor?")) {
             $http.post("/sgejs/rh/remover", {"id": $scope.servidores[$scope.selected].id}).then(function (response) {
                 console.log('servidor removido com sucesso!')
-                $scope.carregarServidores();
+                carregarServidores();
                 $.Notify({caption: '', content: ' Servidor Removido com Sucesso!!! ', type: 'success'});
             });
         }
@@ -224,5 +222,7 @@ app.controller('ListaController', function ($scope, $state, $http) {
     $scope.exibirCharm = function (id, pos) {
         toggleMetroCharm(id, pos);
     };
+
+    carregarServidores();
 });
 

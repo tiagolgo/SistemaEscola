@@ -26,7 +26,7 @@ and open the template in the editor.
 
         <!-- Conteúdo -->
         <div class="cell padding10 no-padding-top text-light" style="overflow-y: scroll" ng-init="item = 1">
-                <span class="button-group">
+            <span class="button-group">
                 <button class="button "><span class="mif-print"></span> Imprimir</button>
             </span>
 
@@ -35,54 +35,38 @@ and open the template in the editor.
             <div style="border: 1px solid #999!important">
                 <div class="row cell-auto-size" >
                     <div class="cell padding10">
-                        <label>* Nome</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.nome" disabled/>
-                        </div>
+                        <label>Nome:</label>
+                        <span class="upper-case">{{servidor.nome}}</span>
                     </div>
-                    <div class="cell padding10 size2">
-                        <label>* Nascimento</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.nascimento" disabled/>
-                        </div>
+                    <div class="cell padding10">
+                        <label>Nascimento:</label>
+                        <span class="upper-case">{{servidor.nascimento}}</span>
                     </div>
-                    <div class="cell padding10 size4">
-                        <label>* Município</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.cidadeNascimento" disabled/>
-                        </div>
+                    <div class="cell padding10">
+                        <label>Município:</label>
+                        <span class="upper-case">{{servidor.cidadeNascimento}}</span>
                     </div>
-                    <div class="cell padding10 size2">
-                        <label>* Estado</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.ufNascimento" disabled/>
-                        </div>
+                    <div class="cell padding10">
+                        <label>Estado:</label>
+                        <span class="upper-case">{{servidor.ufNascimento}}</span>
                     </div>
                 </div>
                 <div class="row cell-auto-size">
                     <div class="cell padding10">
-                        <label>* Sexo</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.sexo" disabled/>
-                        </div>
+                        <label>Sexo:</label>
+                        <span class="upper-case">{{servidor.sexo}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>* Raça</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.raca" disabled/>
-                        </div>
+                        <label>Raça:</label>
+                        <span class="upper-case">{{servidor.raca}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>Grupo Sanguíneo</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.grupoSanguineo" disabled/>
-                        </div>
+                        <label>Grupo Sanguíneo:</label>
+                        <span class="upper-case">{{servidor.grupoSanguineo}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>* Estado Civil</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.estadoCivil" disabled/>
-                        </div>
+                        <label>Estado Civil:</label>
+                        <span class="upper-case">{{servidor.estadoCivil}}</span>
                     </div>
                 </div>
             </div>
@@ -92,42 +76,30 @@ and open the template in the editor.
             <div style="border: 1px solid #999!important">
                 <div class="row cell-auto-size" >
                     <div class="cell padding10">
-                        <label>Rua</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.endereco.rua" disabled/>
-                        </div>
-                    </div>
-                    <div class="cell size2 padding10">
-                        <label>Número</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.endereco.numero" disabled/>
-                        </div>
+                        <label>Rua:</label>
+                        <span class="upper-case">{{servidor.endereco.rua}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>Cep</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.endereco.cep" disabled/>
-                        </div>
+                        <label>Número:</label>
+                        <span class="upper-case">{{servidor.endereco.numero}}</span>
+                    </div>
+                    <div class="cell padding10">
+                        <label>Cep:</label>
+                        <span class="upper-case">{{servidor.endereco.cep}}</span>
                     </div>
                 </div>
                 <div class="row cell-auto-size">
                     <div class="cell padding10">
-                        <label>Bairro</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.endereco.bairro" disabled/>
-                        </div>
+                        <label>Bairro:</label>
+                        <span class="upper-case">{{servidor.endereco.bairro}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>Município</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.endereco.municipio"/>
-                        </div>
+                        <label>Município:</label>
+                        <span class="upper-case">{{servidor.endereco.municipio}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>Estado</label>
-                        <div class="input-control select full-size">
-                            <input type="text" ng-model="servidor.endereco.estado" disabled/>
-                        </div>
+                        <label>Estado:</label>
+                        <span class="upper-case">{{servidor.endereco.estado}}</span>
                     </div>
                 </div>
             </div>
@@ -136,28 +108,19 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Contato</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Celular</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.contato.celular" disabled/>
-                    </div>
+                    <label>Celular:</label>
+                    <span class="upper-case">{{servidor.contato.celular}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Residencial</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.contato.fixo" disabled/>
-                    </div>
+                    <label>Residencial:</label>
+                    <span class="upper-case">{{servidor.contato.fixo}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Recado</label>
-                    <div class="input-control select full-size">
-                        <input type="text" disabled/>
-                    </div>
+                    <label>Recado:</label><span class="upper-case"></span>
                 </div>
                 <div class="cell padding10">
-                    <label>Email</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.contato.email" disabled/>
-                    </div>
+                    <label>Email:</label>
+                    <span class="upper-case">{{servidor.contato.email}}</span>
                 </div>
             </div>
 
@@ -165,16 +128,12 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Filiação</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Pai</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.filiacao.pai" disabled/>
-                    </div>
+                    <label>Pai:</label>
+                    <span class="upper-case">{{servidor.filiacao.pai}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Mãe</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.filiacao.mae" disabled/>
-                    </div>
+                    <label>Mãe:</label><span class="upper-case">{{servidor.filiacao.mae}}
+                    </span>
                 </div>
             </div>
 
@@ -182,28 +141,20 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Documento de Identidade</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Número</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.identidade.numero" disabled/>
-                    </div>
+                    <label>Número:</label>
+                    <span class="upper-case">{{servidor.documento.identidade.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Date de Emissão</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.identidade.emissao" disabled/>
-                    </div>
+                    <label>Date de Emissão:</label>
+                    <span class="upper-case">{{servidor.documento.identidade.emissao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>UF</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.documento.identidade.uf" disabled/>
-                    </div>
+                    <label>UF:</label>
+                    <span class="upper-case">{{servidor.documento.identidade.uf}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Órgão Emissor</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.documento.identidade.emissor" disabled/>
-                    </div>
+                    <label>Órgão Emissor:</label>
+                    <span class="upper-case">{{servidor.documento.identidade.emissor}}</span>
                 </div>
             </div>
 
@@ -211,34 +162,24 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Título Eleitoral</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Número</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.titulo.numero" disabled/>
-                    </div>
+                    <label>Número:</label>
+                    <span class="upper-case">{{servidor.documento.titulo.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Zona</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.titulo.zona" disabled/>
-                    </div>
+                    <label>Zona:</label>
+                    <span class="upper-case">{{servidor.documento.titulo.zona}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Seção</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.titulo.secao" disabled/>
-                    </div>
+                    <label>Seção:</label>
+                    <span class="upper-case">{{servidor.documento.titulo.secao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Emissão</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.titulo.emissao" disabled/>
-                    </div>
+                    <label>Emissão:</label>
+                    <span class="upper-case">{{servidor.documento.titulo.emissao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>UF</label>
-                    <div class="input-control select full-size">
-                        <input type="text" ng-model="servidor.documento.titulo.uf" disabled/>
-                    </div>
+                    <label>UF:</label>
+                    <span class="upper-case">{{servidor.documento.titulo.uf}}</span>
                 </div>
             </div>
 
@@ -246,28 +187,20 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Carteira Nacional de Habilitação</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Número</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.cnh.numero" disabled/>
-                    </div>
+                    <label>Número:</label>
+                    <span class="upper-case">{{servidor.documento.cnh.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Categoria</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.cnh.categoria" disabled/>
-                    </div>
+                    <label>Categoria:</label>
+                    <span class="upper-case">{{servidor.documento.cnh.categoria}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Emissão</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.cnh.emissao" disabled/>
-                    </div>
+                    <label>Emissão:</label>
+                    <span class="upper-case">{{servidor.documento.cnh.emissao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Vencimento</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.cnh.vencimento" disabled/>
-                    </div>
+                    <label>Vencimento:</label>
+                    <span class="upper-case">{{servidor.documento.cnh.vencimento}}</span>
                 </div>
             </div>
 
@@ -275,22 +208,16 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">PIS/PASEP</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Número</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.pis.numero" disabled/>
-                    </div>
+                    <label>Número:</label>
+                    <span class="upper-case">{{servidor.documento.pis.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Data de Inclusão</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.pis.inclusao" disabled/>
-                    </div>
+                    <label>Data de Inclusão:</label>
+                    <span class="upper-case">{{servidor.documento.pis.inclusao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Banco</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.pis.banco" disabled/>
-                    </div>
+                    <label>Banco:</label>
+                    <span class="upper-case">{{servidor.documento.pis.banco}}</span>
                 </div>
             </div>
 
@@ -298,28 +225,20 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Carteira de Trabalho</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Número</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.ctps.numero" disabled/>
-                    </div>
+                    <label>Número:</label>
+                    <span class="upper-case">{{servidor.documento.ctps.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Série</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.ctps.serie" disabled/>
-                    </div>
+                    <label>Série:</label>
+                    <span class="upper-case">{{servidor.documento.ctps.serie}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Data de Emissão</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.ctps.emissao" disabled/>
-                    </div>
+                    <label>Data de Emissão:</label>
+                    <span class="upper-case">{{servidor.documento.ctps.emissao}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>UF</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.documento.ctps.uf" disabled/>
-                    </div>
+                    <label>UF:</label>
+                    <span class="upper-case">{{servidor.documento.ctps.uf}}</span>
                 </div>
             </div>
 
@@ -329,10 +248,8 @@ and open the template in the editor.
                     <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom">CPF</h3>
                     <div class="row cell-auto-size" style="border: 1px solid #999!important">
                         <div class="cell padding10">
-                            <label>Número</label>
-                            <div class="input-control text full-size">
-                                <input type="text" ng-model="servidor.cpf" disabled/>
-                            </div>
+                            <label>Número:</label>
+                            <span class="upper-case">{{servidor.cpf}}</span>
                         </div>
                     </div>
                 </div>
@@ -340,16 +257,12 @@ and open the template in the editor.
                     <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom">Documento Militar</h3>
                     <div class="row cell-auto-size" style="border: 1px solid #999!important">
                         <div class="cell padding10">
-                            <label>Número</label>
-                            <div class="input-control text full-size">
-                                <input type="text" ng-model="servidor.documento.reservista.numero" disabled/>
-                            </div>
+                            <label>Número:</label>
+                            <span class="upper-case">{{servidor.documento.reservista.numero}}</span>
                         </div>
                         <div class="cell padding10">
-                            <label>Categoria</label>
-                            <div class="input-control text full-size">
-                                <input type="text" ng-model="servidor.documento.reservista.categoria" disabled/>
-                            </div>
+                            <label>Categoria:</label>
+                            <span class="upper-case">{{servidor.documento.reservista.categoria}}</span>
                         </div>
                     </div>
                 </div>
@@ -360,16 +273,12 @@ and open the template in the editor.
             <div style="border: 1px solid #999!important">
                 <div class="row cell-auto-size">
                     <div class="cell padding10">
-                        <label>Instrução</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.instrucao" disabled/>
-                        </div>
+                        <label>Instrução:</label>
+                        <span class="upper-case">{{servidor.instrucao}}</span>
                     </div>
                     <div class="cell padding10">
-                        <label>Curso de Pós-Graduação</label>
-                        <div class="input-control text full-size">
-                            <input type="text" ng-model="servidor.posGraduacao" disabled/>
-                        </div>
+                        <label>Curso de Pós-Graduação:</label>
+                        <span class="upper-case">{{servidor.posGraduacao}}</span>
                     </div>
                 </div>
                 <div class="row cell-auto-size">
@@ -426,30 +335,20 @@ and open the template in the editor.
             <h3 class="text-light padding5 bg-grayLight fg-white no-margin-bottom" style="margin-top: 40px">Conta Bancária</h3>
             <div class="row cell-auto-size" style="border: 1px solid #999!important">
                 <div class="cell padding10">
-                    <label>Banco</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.cc.banco" disabled/>
-                    </div>
+                    <label>Banco:</label>
+                    <span class="upper-case">{{servidor.cc.banco}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Agencia</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.cc.agencia" disabled/>
-                    </div>
+                    <label>Agencia:</label>
+                    <span class="upper-case">{{servidor.cc.agencia}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Conta</label>
-                    <div class="input-control text full-size">
-                        <input type="text" ng-model="servidor.cc.numero" disabled/>
-                    </div>
+                    <label>Conta:</label>
+                    <span class="upper-case">{{servidor.cc.numero}}</span>
                 </div>
                 <div class="cell padding10">
-                    <label>Tipo de Conta</label>
-                    <div class="input-control select full-size">
-                        <select>
-                            <option>Conta Corrente</option>
-                        </select>                 
-                    </div>
+                    <label>Tipo de Conta:</label>
+                    <span class="upper-case">Conta Corrente</span>
                 </div>
             </div>
 
