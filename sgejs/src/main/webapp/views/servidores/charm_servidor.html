@@ -3,52 +3,68 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<div data-role="charm" id="charm_servidor" style="width: 100%;" class="bg-white fg-dark">
-    <h4 class="text-bold padding5 no-padding-left">Cadastro de Servidor</h4>
-    <div  style="height: 90%;overflow-y: scroll;">
-        <!--
- To change this license header, choose License Headers in Project Properties.
- To change this template file, choose Tools | Templates
- and open the template in the editor.
-        -->
-        <div class="flex-grid" style="height: 100%!important">
+<div data-role="charm" id="charm_servidor" style="width: 70%;overflow-y: scroll" class="bg-dark fg-white ">
+    <h3 class="text-bold padding5 no-padding-left" style="border-bottom: 1px solid gray">Cadastro de Servidor</h3>
+    <div class="flex-grid padding10">
+        <div class="row cell-auto-size">
+            <!-- Conteúdo -->
+            <div class="cell padding10 no-padding-top no-padding-right text-light">
 
-            <div class="row cell-auto-size" style="height: 100%!important">
-                <!-- Filtro de exibição de arquivo -->
-                <div class="cell size2 padding5 text-light no-padding-top bg-lighterGray no-padding-right">
-                    <h3 class="text-light">Menu Principal</h3>
-                    <ul class="v-menu full-size" style='background-color: transparent!important'>
-                        <li ng-click="item = 1" ng-class="{'v-menu-select':item == 1}"><a href=""><span class=" icon"></span> Informações Básicas</a></li>
-                        <li ng-click="item = 2" ng-class="{'v-menu-select':item == 2}"><a href=""><span class=" icon"></span> Documentos</a></li>
-                        <li ng-click="item = 3" ng-class="{'v-menu-select':item == 3}"><a href=""><span class=" icon"></span> Escolaridade</a></li>
-                        <li ng-click="item = 4" ng-class="{'v-menu-select':item == 4}"><a href=""><span class=" icon"></span> Dependentes</a></li>       
-                        <li ng-click="item = 5" ng-class="{'v-menu-select':item == 5}"><a href=""><span class=" icon"></span> Dados Bancários</a></li>
-                    </ul>
-                </div>
-
-                <!--Conteúdo -->
-                <div class="cell padding30 no-padding-top no-padding-right text-light" style="overflow-y: scroll" ng-init="item = 1">
-                    <form name="form_servidor">
-                        <div class="button-group padding5 no-padding-left" >
-                            <button ng-disabled="form_servidor.$invalid" class="button bg-green" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
-                            <a class="button bg-lightOrange" href="#/"><span class="mif-cancel"></span> Cancelar</a>
-                            <button class="button bg-lightRed"><span class="mif-bin"></span> Remover</button>
+                <form name="form_servidor">
+                    <!-- Dados Pessoais -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Dados Pessoais</span>
                         </div>
-
-                        <!-- Dados Pessoais -->
-                        <div ng-show="item == 1" style="height: auto!important">
-                            <!--Dados Pessoais-->
+                        <div class="content padding10" style="display: block;">
                             <div ng-include="'views/servidores/componentes/dadospessoais.html'"></div>
-                            <!-- Endereço -->
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Endereço -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Endereço</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
                             <div ng-include="'views/servidores/componentes/endereco.html'"></div>
-                            <!-- Contato -->
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Contato -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Contato</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
                             <div ng-include="'views/servidores/componentes/contato.html'"></div>
-                            <!-- Filiaçao -->
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Filiaçao -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Filiação</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
                             <div ng-include="'views/servidores/componentes/filiacao.html'"></div>
                         </div>
+                    </div>
 
-                        <!-- Documentos -->
-                        <div ng-show="item == 2" style="height: auto!important">
+                    <div class="padding5"></div>
+
+                    <!-- Documentos -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Documentos</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
                             <!-- Identidade -->
                             <div ng-include="'views/servidores/componentes/identidade.html'"></div>
                             <!-- Titulo Eleitoral -->
@@ -62,22 +78,71 @@ and open the template in the editor.
                             <!-- Documento Militar -->
                             <div ng-include="'views/servidores/componentes/reservista.html'"></div>
                         </div>
+                    </div>
 
-                        <!-- Escolaridade -->
-                        <div ng-include="'views/servidores/componentes/escolaridade.html'"></div>
-                        <!-- Dependentes -->
-                        <div ng-include="'views/servidores/componentes/dependentes.html'"></div>
-                        <!-- Dados Bancários -->
-                        <div ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
-                    </form>
-                </div>
+                    <div class="padding5"></div>
+
+                    <!-- Escolaridade -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Escolaridade</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
+                            <div ng-include="'views/servidores/componentes/escolaridade.html'"></div>
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Dependentes -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Dependentes</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
+                            <div ng-include="'views/servidores/componentes/dependentes.html'"></div>
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Dados Bancários -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Dados Bancários</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
+                            <div ng-include="'views/servidores/componentes/dadosbancarios.html'"></div>
+                        </div>
+                    </div>
+
+                    <div class="padding5"></div>
+
+                    <!-- Dados Funcionais -->
+                    <div class="panel collapsible" data-role="panel" style="border: 1px solid #1ba1e2">
+                        <div class="heading">
+                            <span class="title">Dados Funcionais</span>
+                        </div>
+                        <div class="content padding10" style="display: block;">
+                            <div ng-include="'views/servidores/componentes/dadosfuncionais.html'"></div>
+                        </div>
+                    </div>
+
+                    <div class="button-group padding5 no-padding-left">
+                        <button ng-disabled="form_servidor.$invalid" class="button large-button" ng-click='salvarServidor()'><span class="mif-floppy-disk"></span> Salvar</button>
+                        <a class="button large-button" href="#/"><span class="mif-cancel"></span> Cancelar</a>
+                        <button class="button large-button"><span class="mif-bin"></span> Remover</button>
+                    </div>
+
+                </form>
             </div>
         </div>
-
-
-        <!-- Modal para inclusão/edição de dependente -->
-        <div ng-include="'views/servidores/modal_dependente.html'"></div>
-        <!-- Modal para inclusão/edição de cursos de graduação -->
-        <div ng-include="'views/servidores/modal_graduacao.html'"></div>
     </div>
+
+    <!-- Modal para inclusão/edição de dependente -->
+    <div ng-include="'views/servidores/modal_dependente.html'"></div>
+    <!-- Modal para inclusão/edição de cursos de graduação -->
+    <div ng-include="'views/servidores/modal_graduacao.html'"></div>
+    <!-- Modal para inclusão/edição de Função -->
+    <div ng-include="'views/servidores/modal_funcao.html'"></div>
 </div>

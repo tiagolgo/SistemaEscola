@@ -3,11 +3,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<h4>Dados Funcionais</h4>
 <div class="button-group">
     <button class="button small-button" ng-click="abrirModal('#modal_funcao')"><span class='mif-plus'> Adicionar</span></button>
-    <button class="button small-button"><span class='mif-pencil'> Editar</span></button>
-    <button class="button small-button"><span class='mif-bin'> Excluir</span></button>
 </div>
 <table class="table striped hovered full-size">
     <thead>
@@ -18,16 +15,21 @@ and open the template in the editor.
             <td>Carga Horária</td>
             <td>Início</td>
             <td>Fim</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
         <tr style="text-transform: capitalize" ng-repeat="f in servidor.funcoes">
             <td>{{f.nome}}</td>
             <td>{{f.situacao}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{f.vinculo}}</td>
+            <td>{{f.cargaHoraria}}</td>
+            <td>{{f.inicio}}</td>
+            <td>{{f.fim}}</td>
+            <td>
+                <button class="button small-button cycle-button" ng-click="editarFuncao($index)"><span class='mif-pencil'></span></button>
+                <button class="button small-button cycle-button" ng-click="removerFuncao($index)"><span class='mif-bin'></span></button>
+            </td>
         </tr>
     </tbody>
 </table>

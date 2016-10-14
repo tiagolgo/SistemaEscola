@@ -1,9 +1,5 @@
-
-<h4>Dependentes</h4>
 <div class="button-group">
     <button class="button small-button" ng-click="abrirModal('#modal_dependente')"><span class='mif-plus'> Adicionar</span></button>
-    <button class="button small-button"><span class='mif-pencil'> Editar</span></button>
-    <button class="button small-button"><span class='mif-bin'> Excluir</span></button>
 </div>
 <div class="row cell-auto-size">
     <div class="cell padding10">
@@ -15,15 +11,20 @@
                     <td>Parentesco</td>
                     <td>Estado Civil</td>
                     <td>Situação Financeira</td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="d in servidor.dependentes" style="text-transform: capitalize">
                     <td>{{d.nome}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{d.rg}}</td>
+                    <td>{{d.dependencia}}</td>
+                    <td>{{d.estadoCivil}}</td>
+                    <td>{{d.situacaoFinanceira}}</td>
+                    <td>
+                        <button class="button small-button cycle-button" ng-click="editarDependente($index)"><span class='mif-pencil'></span></button>
+                        <button class="button small-button cycle-button" ng-click="removerDependente($index)"><span class='mif-bin'></span></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

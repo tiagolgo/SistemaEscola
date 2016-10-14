@@ -53,23 +53,6 @@
                 background-color: white!important;
                 color: black!important;
             }
-            .ng-exibir {
-                transition: all linear 0.5s;
-                background-color: lightblue;
-                height: 100px;
-                width: 100%;
-                position: relative;
-                top: 0;
-                left: 0;
-            }
-
-            .ng-hide {
-                height: 0;
-                width: 0;
-                background-color: transparent;
-                top:-200px;
-                left: 200px;
-            }
             input{
                 text-transform: capitalize
             }
@@ -79,7 +62,7 @@
             }
         </style>
     </head>
-    <body ng-controller="ListaController">
+    <body ng-controller="HomeController">
         <!-- App Bar -->
         <div class="app-bar flex-grid no-print">
             <div class="row cell-auto-size" style="border-bottom: .5px solid white">
@@ -137,7 +120,7 @@
                 </div>
                 <div class="cell">
                     <div class="button-group padding5 no-padding-left" >
-                        <button class="button" ng-click="exibirCharm('#charm_servidor','right')"><span class="mif-plus"></span> Novo</button>
+                        <button class="button" ng-click="exibirCharm('#charm_servidor', 'right')"><span class="mif-plus"></span> Novo</button>
                         <button class="button bg-lightOrange" ng-show="selected != null" ng-click="editarServidor()"><span class="mif-pencil"></span> Editar</button>
                         <button class="button bg-lightRed" ng-show="selected != null" ng-click="excluirServidor()"><span class="mif-bin"></span> Remover</button>
                         <button class="button" ng-show="selected != null" ng-click="visualizarServidor()"><span class=""></span> Detalhar</button>
@@ -158,14 +141,13 @@
                         <li class="menu-title">Opções de Exibição</li>
                         <li><a href="#"><span class="mif-user icon"></span> Ativos</a></li>
                         <li><a href="#"><span class="mif-calendar icon"></span> Afastados</a></li>
-                        <li><a href="#"><span class="mif-image icon"></span> Photo</a></li>
                         <li class="divider"></li>
                         <li class="menu-title">Opções de Relatórios</li>
                         <li>
-                            <a href="#" class="dropdown-toggle"><span class="mif-my-location icon"></span> Relatórios</a>
+                            <a href="#" class="dropdown-toggle"><span class="mif-printer icon"></span> Relatórios</a>
                             <ul class="d-menu" data-role="dropdown">
                                 <li class="menu-title">Gerar Relatório</li>
-                                <li><a href="#">Lista de Servidores</a></li>
+                                <li><a href="#">Todos os Servidores</a></li>
                                 <li><a href="#">Professores</a></li>
                                 <li><a href="#">Agentes Educacionais I</a></li>
                                 <li><a href="#">Agentes Educacionais II</a></li>
